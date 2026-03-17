@@ -2,24 +2,19 @@
   {
     "cacheKey": "2026-03-16",
     "repos": [
-      "audioeye/a11y-testing",
-      "audioeye/services-v2"
+      "audioeye/a11y-testing"
     ],
     "id": "2026-03-16",
     "tag": "2026-03-16",
     "name": "Week of March 16, 2026",
     "date": "2026-03-17T17:59:18Z",
     "rawChanges": [
-      "try fixing shell-docs container again",
-      "revert name to Modal_Usage_Cookie_Detect",
-      "fix the shell tool build, add dist-tool output",
-      "add reporting slices to payload"
+      "try fixing shell-docs container again"
     ],
-    "generatedNotes": "### Bug Fixes\n\n- Resolved build issues affecting the shell documentation and shell tool components.\n- Restored the correct name for the cookie detection modal (`Modal_Usage_Cookie_Detect`).\n\n### Improvements\n\n- Added reporting slices to the data payload for enhanced analytics coverage.",
-    "processedAt": "2026-03-17T21:03:41.687Z",
+    "generatedNotes": "### Bug Fixes\n\n- Fixed an issue that could affect the availability of shell documentation.",
+    "processedAt": "2026-03-17T21:09:11.938Z",
     "githubUrls": [
-      "https://github.com/audioeye/a11y-testing/commits/main",
-      "https://github.com/audioeye/services-v2/commits/staging"
+      "https://github.com/audioeye/a11y-testing/commits/main"
     ]
   },
   {
