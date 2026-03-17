@@ -51,16 +51,15 @@ jobs:
 
       - name: Generate release notes
         env:
-          # PAT with read:repo access to all repos listed in GITHUB_REPOS.
-          # Store as secret GH_PAT — the built-in GITHUB_TOKEN only has access
-          # to the current repo and cannot read other private repos.
+          # Secrets — set these in Settings → Secrets and variables → Actions
+          # GH_PAT: a PAT with read:repo access to services-v2 and a11y-testing
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          # Store repo list and site metadata as Actions variables (Settings → Variables)
-          GITHUB_REPOS: ${{ vars.GITHUB_REPOS }}
-          SITE_TITLE: ${{ vars.SITE_TITLE }}
-          SITE_DESCRIPTION: ${{ vars.SITE_DESCRIPTION }}
-          SITE_BASE_URL: ${{ vars.SITE_BASE_URL }}
+          # Repo list and site metadata — edit directly here
+          GITHUB_REPOS: https://github.com/audioeye/services-v2@staging,https://github.com/audioeye/a11y-testing@main
+          SITE_TITLE: Platform Release Notes
+          SITE_DESCRIPTION: Latest updates and improvements to the AudioEye platform
+          SITE_BASE_URL: https://audioeye.github.io/release-notes
         run: npm run generate
 
       - name: Commit cache updates
