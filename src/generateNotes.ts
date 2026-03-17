@@ -47,14 +47,23 @@ export async function generateReleaseNotes(changes: string[]): Promise<string> {
       return text.trim() || '_No notes generated._';
     } catch (err: unknown) {
       lastError = err;
-      const status = (err as { status?: number }).status;
-      if (status === 500 || status === 529) {
-        // Transient server error — wait and retry
+
+      // Determine whether this is a transient server-side error worth retrying.
+      // The SDK throws Anthropic.APIError instances; fall back to message sniffing
+      // in case the error is surfaced as a plain Error with a JSON body.
+      const isRetryable =
+        (err instanceof Anthropic.APIError && (err.status === 500 || err.status === 529)) ||
+        (err instanceof Error && /internal server error|overloaded/i.test(err.message));
+
+      if (isRetryable) {
         const delay = attempt * 5000;
-        console.warn(`  API error (attempt ${attempt}/${MAX_RETRIES}), retrying in ${delay / 1000}s…`);
+        console.warn(
+          `  Anthropic API error (attempt ${attempt}/${MAX_RETRIES}), retrying in ${delay / 1000}s…`,
+        );
         await new Promise((res) => setTimeout(res, delay));
         continue;
       }
+
       // Non-retryable error — rethrow immediately
       throw err;
     }
