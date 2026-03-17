@@ -42,7 +42,7 @@ function parseRepos(): Array<{ owner: string; repo: string; branch: string }> {
 
 export const config = {
   github: {
-    token: process.env.GITHUB_TOKEN ?? required('GITHUB_TOKEN'),
+    token: process.env.NPM_PACKAGE_READ_TOKEN ?? required('NPM_PACKAGE_READ_TOKEN'),
     repos: parseRepos(),
     // Per-repo branches are set via the @branch suffix in GITHUB_REPOS.
     // GITHUB_BRANCH sets the fallback for any repo without an explicit @branch.
