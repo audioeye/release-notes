@@ -5,6 +5,7 @@
   "description": "Generate customer-facing release notes from GitHub releases",
   "scripts": {
     "generate": "tsx src/index.ts",
+    "generate:clean": "rm -f data/releases.json && tsx src/index.ts",
     "clean": "rm -rf data/ output/",
     "serve": "npx serve ./output",
     "build": "tsc"

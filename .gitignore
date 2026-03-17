@@ -1,5 +1,5 @@
 node_modules/
 dist/
 .env
-data/
 output/
+# data/ is intentionally tracked — releases.json is the generation cache

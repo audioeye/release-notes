@@ -1,0 +1,85 @@
+name: Release Notes
+
+on:
+  # Run every Monday at 8:00 AM UTC — start of a new week
+  schedule:
+    - cron: '0 8 * * 1'
+  # Also run on pushes to main (e.g. config or prompt changes)
+  push:
+    branches: [main]
+  # Allow manual runs from the Actions tab, with an optional clean-build flag
+  workflow_dispatch:
+    inputs:
+      clean_build:
+        description: 'Discard cache and regenerate from scratch (last 6 months)'
+        type: boolean
+        default: false
+
+# Prevent concurrent runs from clobbering the cache commit
+concurrency:
+  group: release-notes
+  cancel-in-progress: false
+
+permissions:
+  contents: write   # Push cache commits back to main
+  pages: write      # Deploy to GitHub Pages
+  id-token: write   # OIDC token required by deploy-pages
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Clear cache (clean build)
+        if: ${{ inputs.clean_build == true }}
+        run: rm -f data/releases.json
+
+      - name: Generate release notes
+        env:
+          # PAT with read:repo access to all repos listed in GITHUB_REPOS.
+          # Store as secret GH_PAT — the built-in GITHUB_TOKEN only has access
+          # to the current repo and cannot read other private repos.
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Store repo list and site metadata as Actions variables (Settings → Variables)
+          GITHUB_REPOS: ${{ vars.GITHUB_REPOS }}
+          SITE_TITLE: ${{ vars.SITE_TITLE }}
+          SITE_DESCRIPTION: ${{ vars.SITE_DESCRIPTION }}
+          SITE_BASE_URL: ${{ vars.SITE_BASE_URL }}
+        run: npm run generate
+
+      - name: Commit cache updates
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/releases.json
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: update release notes cache [skip ci]"
+            git push
+          else
+            echo "No cache changes to commit."
+          fi
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: output/
+
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
