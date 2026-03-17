@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "release-notes",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "./output", "--listen", "4000"],
+      "port": 4000
+    }
+  ]
+}
