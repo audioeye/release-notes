@@ -52,8 +52,8 @@ jobs:
       - name: Generate release notes
         env:
           # Secrets — set these in Settings → Secrets and variables → Actions
-          # GITHUB_APP_TOKEN: needs read:repo (or Contents read) access to services-v2 and a11y-testing
-          GITHUB_APP_TOKEN: ${{ secrets.GITHUB_APP_TOKEN }}
+          # GH_APP_TOKEN: needs read:repo (or Contents read) access to services-v2 and a11y-testing
+          GH_APP_TOKEN: ${{ secrets.GH_APP_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           # Repo list and site metadata — edit directly here
           GITHUB_REPOS: https://github.com/audioeye/services-v2@staging,https://github.com/audioeye/a11y-testing@main
