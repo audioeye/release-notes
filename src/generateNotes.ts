@@ -25,13 +25,12 @@ export async function generateReleaseNotes(changes: string[]): Promise<string> {
   let lastError: unknown;
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
     try {
-      // max_tokens must cover both thinking blocks and the text response.
-      // Adaptive thinking can silently consume a large share of the budget,
-      // so 4096 gives enough headroom for even busy weeks.
+      // budget_tokens controls how much of the 4096 max_tokens Claude can use
+      // for internal reasoning; the remainder goes to the visible text response.
       const stream = client.messages.stream({
         model: 'claude-opus-4-6',
         max_tokens: 4096,
-        thinking: { type: 'adaptive' },
+        thinking: { type: 'enabled', budget_tokens: 2048 },
         system: SYSTEM_PROMPT,
         messages: [{ role: 'user', content: userMessage }],
       });
