@@ -57,8 +57,8 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           # Repo list and site metadata — edit directly here
           GITHUB_REPOS: https://github.com/audioeye/services-v2@staging,https://github.com/audioeye/a11y-testing@main
-          SITE_TITLE: Platform Release Notes
-          SITE_DESCRIPTION: Latest updates and improvements to the AudioEye platform
+          SITE_TITLE: AudioEye Release Notes
+          SITE_DESCRIPTION: Latest updates and improvements to AudioEye products and services
           SITE_BASE_URL: https://audioeye.github.io/release-notes
         run: npm run generate
 
