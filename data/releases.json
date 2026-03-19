@@ -2,23 +2,27 @@
   {
     "cacheKey": "2026-03-16",
     "repos": [
-      "audioeye/a11y-testing"
+      "audioeye/a11y-testing",
+      "audioeye/services-v2"
     ],
     "id": "2026-03-16",
     "tag": "2026-03-16",
     "name": "Week of March 16, 2026",
-    "date": "2026-03-17T23:05:00Z",
+    "date": "2026-03-19T15:55:35Z",
     "rawChanges": [
-      "update trim to not clash with klarna polyfill",
-      "try fixing shell-docs container again",
-      "revert name to Modal_Usage_Cookie_Detect",
-      "fix the shell tool build, add dist-tool output",
-      "add reporting slices to payload"
+      "add healthcheck to mcp server",
+      "add release notes for 11x",
+      "i18n review follow-up from PR #1116",
+      "Update format script and run prettier on project files",
+      "Html Scrollable autofix",
+      "do not kill the server when there is a transport error",
+      "update trim to not clash with klarna polyfill"
     ],
-    "generatedNotes": "### Bug Fixes\n\n- Fixed a compatibility issue where the trim method could clash with the Klarna polyfill.\n- Fixed the shell-docs container configuration.\n- Reverted the component name back to Modal_Usage_Cookie_Detect.\n- Fixed the shell tool build process.\n\n### Improvements\n\n- Added dist-tool output to the shell tool build.\n- Added reporting slices to the payload.",
-    "processedAt": "2026-03-18T15:13:54.621Z",
+    "generatedNotes": "### New Features\n\n- Added a healthcheck endpoint to the MCP server for improved monitoring and reliability.\n- HTML Scrollable issues now support autofix, allowing you to resolve them automatically.\n\n### Bug Fixes\n\n- The server no longer shuts down when a transport error occurs, improving overall stability.\n- Fixed a conflict where the trim utility could clash with the Klarna polyfill.\n\n### Improvements\n\n- Addressed internationalization feedback from a recent review to improve language support.\n- Updated code formatting scripts and applied consistent formatting across project files.\n- Added release notes for version 11x.",
+    "processedAt": "2026-03-19T18:55:17.848Z",
     "githubUrls": [
-      "https://github.com/audioeye/a11y-testing/commits/main"
+      "https://github.com/audioeye/a11y-testing/commits/main",
+      "https://github.com/audioeye/services-v2/commits/staging"
     ]
   },
   {
