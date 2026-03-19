@@ -7,12 +7,16 @@
     "id": "2026-03-16",
     "tag": "2026-03-16",
     "name": "Week of March 16, 2026",
-    "date": "2026-03-17T17:59:18Z",
+    "date": "2026-03-17T23:05:00Z",
     "rawChanges": [
-      "try fixing shell-docs container again"
+      "update trim to not clash with klarna polyfill",
+      "try fixing shell-docs container again",
+      "revert name to Modal_Usage_Cookie_Detect",
+      "fix the shell tool build, add dist-tool output",
+      "add reporting slices to payload"
     ],
-    "generatedNotes": "### Bug Fixes\n\n- Fixed an issue that could affect the availability of shell documentation.",
-    "processedAt": "2026-03-17T21:09:11.938Z",
+    "generatedNotes": "### Bug Fixes\n\n- Fixed a compatibility issue where the trim method could clash with the Klarna polyfill.\n- Fixed the shell-docs container configuration.\n- Reverted the component name back to Modal_Usage_Cookie_Detect.\n- Fixed the shell tool build process.\n\n### Improvements\n\n- Added dist-tool output to the shell tool build.\n- Added reporting slices to the payload.",
+    "processedAt": "2026-03-18T15:13:54.621Z",
     "githubUrls": [
       "https://github.com/audioeye/a11y-testing/commits/main"
     ]
@@ -57,8 +61,8 @@
       "Autofix h1 multiple to add h2s",
       "MenuItem ParentMissing Autofix"
     ],
-    "generatedNotes": "### New Features\n\n- Added automatic fix for pages missing an H1 heading.\n- Added automatic fix for pages with multiple H1 headings by converting extras to H2 elements.\n- Added automatic fix for menu items that are missing a required parent element.\n- Added the ability to generate and access MARS reports.\n- Added a tool to extract images from scanned pages.\n- Added a tool to view unfixed accessibility issues.\n\n### Improvements\n\n- On-screen controls now remain visible when maximized on mobile devices.\n- Updated the bug report form.\n- Streamlined the localization system for improved performance and maintainability.\n- Improved browser module compatibility for broader build support.\n\n### Bug Fixes\n\n- Fixed a tab navigation issue",
-    "processedAt": "2026-03-16T21:31:40.722Z",
+    "generatedNotes": "### New Features\n\n- Added autofix for missing H1 headings.\n- Added autofix to convert duplicate H1 headings to H2s.\n- Added autofix for MenuItem with a missing parent element.\n- You can now generate and access the MARS report.\n- Added a tool to view unfixed issues.\n- Added image extraction support.\n- Added MCP server for the scanner bundler.\n\n### Improvements\n\n- Removed legacy localization code and simplified the internationalization event chain.\n- Migrated locale files to i18next and checked localizations directly into the codebase.\n- Removed the locize dependency.\n- Centralized accessibility engine blocking code for consistency.\n- Scoped fixTabset behavior to anchor elements.\n- Restored webpack-compatible build for the browser module system.\n- Open-source control buttons now remain visible in mobile maximized view.\n\n### Bug Fixes\n\n- Fixed two CVEs related to fast-xml-parser.\n- Fixed shell server export.\n- Fixed shell tool build.\n\n### Infrastructure\n\n- Bumped multer and other dependencies.\n- Bumped flatted from 3.3.3 to 3.4.1 in /packages/a11y-docs-site.\n- Reworked Docker builds to use a build-tag-push workflow.\n- Added magic version flags to Dockerfiles.\n- Updated Docker publish process for new images.\n- Added Docker export for a11y-docs-site.\n- Updated bug report form.\n- Removed extra publish_stage script.\n- Updated Slack channel ID in workflow.",
+    "processedAt": "2026-03-18T15:14:05.438Z",
     "githubUrls": [
       "https://github.com/audioeye/services-v2/commits/staging",
       "https://github.com/audioeye/a11y-testing/commits/main"
@@ -91,8 +95,8 @@
       "Heading sequence invalid fix",
       "SVGNameMissing autofix"
     ],
-    "generatedNotes": "### New Auto-Fixes\n\n- Added auto-fix for Yotpo, Google Review, and star rating accessibility patterns.\n- Added auto-fix for missing footer landmark issues.\n- Added auto-fixes for HTML tabable elements and manual cursor focus issues.\n- Added auto-fix for missing labels and region issues in Google Translate widgets.\n- Added auto-fix for invalid heading sequence issues.\n- Added auto-fix for SVGs missing accessible names.\n\n### Bug Fixes\n\n- Fixed a crash caused by an invalid selector query in site-menu and carousel components.\n- Fixed an issue with the button role missing auto-fix not applying correctly.\n- Fixed the loading logic for the Rich Text Editor.\n- Fixed JavaScript freezing on pages using region-qualified language codes (e.g., `en-US`).\n\n### Improvements\n\n- Migrated the build system to Rolldown for improved performance.\n- Added auto-fix allow list support to production configuration types.\n- Enabled auto-fix capabilities in the Sg scanner.\n\n### Removed\n\n- Removed the example audio controls auto-fix.\n- Removed the rule test report from the internal report server.",
-    "processedAt": "2026-03-16T21:31:54.764Z",
+    "generatedNotes": "### New Auto-Fixes\n\n- Added auto-fix for Yotpo, Google Review, and star rating patterns.\n- Added auto-fix for missing footer landmarks (manualFooterLandmarkMissing).\n- Added auto-fix for missing button roles (buttonRoleMissing).\n- Added auto-fixes for HTMLTabable and ManualCursorFocus issues.\n- Added auto-fix for Google Translate missing labels and region issues.\n- Added auto-fix for missing SVG names (SVGNameMissing).\n- Added auto-fix for invalid heading sequences.\n- Enabled auto-fix support in the Sg scanner.\n\n### Bug Fixes\n\n- Fixed a crash caused by an invalid selector query in site-menu and carousel components.\n- Fixed an issue where JavaScript could freeze on pages using region-qualified language codes.\n- Fixed the logic for loading real-time effects (RTE).\n\n### Improvements\n\n- Added nonRulesAutoFixesAllowList to production config types to support mono production config usage.\n- Migrated build tooling to Rolldown.\n\n### Removals\n\n- Removed the example audiocontrols auto-fix.\n- Removed ruleTestReport from the internal report server.",
+    "processedAt": "2026-03-18T15:14:14.673Z",
     "githubUrls": [
       "https://github.com/audioeye/services-v2/commits/staging",
       "https://github.com/audioeye/a11y-testing/commits/main"
@@ -125,8 +129,8 @@
       "Locize Cleanup",
       "Hotfix - add optimizely href to skip autorem applying"
     ],
-    "generatedNotes": "### New Features\n\n- Added Hebrew (RTL) language support for the HelpDesk widget.\n- Added automatic fix support for iframes missing a name attribute.\n\n### Improvements\n\n- Updated the detection logic for the Adjacent Redundant Links rule to improve accuracy.\n- Improved performance by skipping unnecessary network requests for English locale files.\n- Added documentation covering available automatic fixes.\n\n### Bug Fixes\n\n- Fixed right-to-left (RTL) text alignment issues caused by CSS direction not being inherited correctly.\n- Fixed several site-menu issues including cross-frame behavior, keyboard navigation, and the Alt+M shortcut.\n- Fixed a translation rendering issue in the HelpDesk support panel.\n- Fixed an issue where automatic remediation was incorrectly applied to Optimizely links.",
-    "processedAt": "2026-03-16T21:32:07.305Z",
+    "generatedNotes": "### New Features\n\n- Added RTL (Hebrew) language support for HelpDesk.\n- Added autofix support for missing iframe name attributes.\n- Added IIFE export type for rules factories.\n\n### Improvements\n\n- Updated the Link_AdjacentHref_Redundant rule logic for more accurate detection.\n- English locale files are now loaded locally instead of fetched from the CDN, improving performance.\n- Removed the minimum version check on the bundler.\n- Added documentation covering autofix contents.\n\n### Bug Fixes\n\n- Fixed RTL text alignment by correctly inheriting direction in the CSS reset.\n- Fixed site-menu issues with cross-frame behavior, keyboard navigation, and the Alt+M shortcut.\n- Fixed a broken translation in the HelpDesk screen reader section.\n- Fixed Optimizely links being incorrectly modified by auto-remediation.",
+    "processedAt": "2026-03-18T15:14:26.956Z",
     "githubUrls": [
       "https://github.com/audioeye/a11y-testing/commits/main",
       "https://github.com/audioeye/services-v2/commits/staging"
@@ -165,11 +169,105 @@
       "do not emit unfixed problem for source fix rules",
       "find regressions better"
     ],
-    "generatedNotes": "### New Features\n\n- Added a new Carousel component with built-in accessibility fixes.\n- Added an automatic fix for elements with invalid ARIA roles.\n- Added an automatic fix for buttons missing the appropriate role attribute.\n- Added a skip link enhancement that now supports both click and keyboard events.\n- Added a helper utility for inserting ARIA live regions to support real-time accessibility fixes.\n- Added the ability to automatically fill in missing metadata for accessibility issues.\n\n### Improvements\n\n- Deferred rules configuration loading to improve initialization timing and reliability.\n- Separated fix failure and issue validation failure into distinct states for clearer reporting.\n- Improved regression detection for more reliable issue tracking.\n- Suppressed unnecessary unfixed problem notifications for source-level fix rules.\n- Reorganized automatic fixes into dedicated folders for better maintainability.\n- Set up Playwright testing infrastructure for automatic fixes.\n- Included rules files in the published package.\n\n### Bug Fixes\n\n- Fixed the site menu not rendering correctly.\n- Fixed an issue preventing the Carousel component from being included in releases.\n- Fixed a publishing error affecting the Carousel component.\n\n### Documentation\n\n- Updated the anatomy proposal documentation.\n- Updated the DAD documentation.\n\n### Dependency Updates\n\n- Updated 7 packages across npm and Yarn dependencies.",
-    "processedAt": "2026-03-16T21:32:19.573Z",
+    "generatedNotes": "### New Features\n\n- Added a new Carousel component and FixCarousel for carousel-related accessibility fixes.\n- Added an autofix for invalid ARIA roles.\n- Added a buttonRoleMissing autofix.\n- Added the ability to fill in missing metadata for accessibility issues.\n- Added a helper function for inserting ARIA live regions for real-time effects fixes.\n\n### Improvements\n\n- Rules configuration loading is now deferred to improve startup reliability.\n- Fix failures and issue validation failures are now reported separately for clearer diagnostics.\n- Skip link auto-remediation now supports both click and keyboard events.\n- Added Playwright testing infrastructure for autofixes, with initial test coverage.\n- Improved detection of regressions.\n- Reorganized autofixes into their own folders for better project structure.\n- Added a11ytesting 11x version npm alias for autofixes.\n- Cleaned up validation tests.\n\n### Bug Fixes\n\n- Fixed an issue with the site menu.\n- Fixed release and publish processes to correctly include the Carousel component.\n- Rules files are now properly included in the published package.\n- Source fix rules no longer incorrectly emit unfixed problem reports.\n\n### Documentation\n\n- Fixed the anatomy proposed document.\n- Updated the DAD documentation.\n\n### Dependency Updates\n\n- Updated 7 packages in the npm and Yarn dependency group.",
+    "processedAt": "2026-03-18T15:14:42.582Z",
     "githubUrls": [
       "https://github.com/audioeye/a11y-testing/commits/main",
       "https://github.com/audioeye/services-v2/commits/staging"
+    ]
+  },
+  {
+    "cacheKey": "2026-02-09",
+    "repos": [
+      "audioeye/services-v2",
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-02-09",
+    "tag": "2026-02-09",
+    "name": "Week of February 9, 2026",
+    "date": "2026-02-13T21:47:37Z",
+    "rawChanges": [
+      "Locize translation SiteMenu and others",
+      "add ability to disable regular rules in services-v2-scanner",
+      "ensure legacy rems run when other conditions are met",
+      "Add testMode() for composite fix debug logging",
+      "fix false positives in NonText_Contrast_TooLow rule",
+      "Locize Translation Carousel",
+      "DAD docs adds SFR repo",
+      "add fix failed verification imp problem",
+      "doesNotApply when no link name.",
+      "add fix failed verification result",
+      "add implementationProblems to MarsReport",
+      "add execution order to fix tracker output",
+      "update to the new get or default package",
+      "add get or default package",
+      "Add excludeItems API for FixSiteMenu",
+      "add validation phase",
+      "remove legacy marsEngine",
+      "fix post publish e2e testing",
+      "Add MARS to DAD",
+      "add webpack compatible output to browser-module-system",
+      "disable creating github changelog",
+      "automatically exclude private packages from release",
+      "convert wcag to library and lock versions",
+      "add imp problems to publish",
+      "attempt to fix the lambda module not found error",
+      "turn off caching for copy-dist-files"
+    ],
+    "generatedNotes": "### New Features\n\n- Added the ability to disable regular rules in the scanner.\n- Added a testMode() option for composite fix debug logging.\n- Added an excludeItems API for FixSiteMenu.\n- Added a validation phase to the processing pipeline.\n- Added execution order tracking to fix tracker output.\n- Added webpack-compatible output to browser-module-system.\n- Added implementation problems to MarsReport and publish output.\n- Added fix failed verification results and implementation problem tracking.\n\n### Bug Fixes\n\n- Fixed false positives in the NonText_Contrast_TooLow rule.\n- Fixed an issue where legacy real-time effects did not run when other conditions were met.\n- Rules now correctly return doesNotApply when no link name is present.\n- Fixed an issue with the lambda module not found error.\n- Fixed post-publish end-to-end testing.\n\n### Internationalization\n\n- Added translations for SiteMenu and other components.\n- Added translations for Carousel.\n\n### Improvements\n\n- Removed the legacy marsEngine in favor of the updated engine.\n- Converted the WCAG package to a library with locked versions.\n- Updated to the new get-or-default package.\n- Added MARS and the SFR repo to DAD documentation.\n\n### Infrastructure\n\n- Disabled automatic GitHub changelog creation.\n- Private packages are now automatically excluded from releases.\n- Turned off caching for copy-dist-files.",
+    "processedAt": "2026-03-18T15:15:03.197Z",
+    "githubUrls": [
+      "https://github.com/audioeye/services-v2/commits/staging",
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-02-02",
+    "repos": [
+      "audioeye/services-v2",
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-02-02",
+    "tag": "2026-02-02",
+    "name": "Week of February 2, 2026",
+    "date": "2026-02-07T00:21:47Z",
+    "rawChanges": [
+      "Convert smart remediations to typescript",
+      "remove package json from cache output",
+      "setLabel() helper - allow Cash type for second parameter",
+      "copy files to the weird /dist instead of links",
+      "adding MARS to DAD",
+      "add release notes for 10.4 releases",
+      "create implementation problems list",
+      "move renderSelfHtml to prevent circular dep",
+      "add validate fixes flag for mars",
+      "exclude disabled elements from focusable list",
+      "Bootstrap Additional Auto Fixes",
+      "allow prerelease scanner versions in the query string",
+      "improve browser symlink executor",
+      "add missing packages",
+      "add fallback version resolver for new packages",
+      "add babel plugin to versions list",
+      "Fixing tar vulnerability.",
+      "turn off preserveLocalDependencyProtocols",
+      "add tokens to try and fix auth during publish",
+      "Fix the playwright report",
+      "add debugging to release for auth",
+      "add npm auth to publish",
+      "fix publish setup",
+      "Change some yarn settings",
+      "fix the a11y docs site build during publish",
+      "fix Img_Name_TooLong causing images to disappear",
+      "form landmark missing manual rule added",
+      "fix release script and backport to 11_0_x",
+      "add fixVerified and regression results",
+      "New manual rule for focus trap"
+    ],
+    "generatedNotes": "### New Features\n\n- Added a new manual rule for detecting missing form landmarks.\n- Added a new manual rule for focus trap detection.\n- Added Bootstrap additional auto fixes.\n- Added MARS integration to DAD.\n- Added a validate fixes flag for MARS.\n- Added fixVerified and regression results support.\n- You can now view a list of implementation problems.\n\n### Improvements\n\n- The setLabel() helper now accepts a Cash type for its second parameter.\n- Prerelease scanner versions are now allowed in the query string.\n- Added a fallback version resolver for new packages.\n- Smart remediations have been converted to TypeScript for improved reliability.\n- Added release notes for 10.4 releases.\n\n### Bug Fixes\n\n- Disabled elements are no longer incorrectly included in the focusable elements list.\n- Fixed an issue where Img_Name_TooLong caused images to disappear.\n- Fixed a tar-related security vulnerability.\n- Resolved a circular dependency issue with renderSelfHtml.\n- Fixed the Playwright report generation.\n- Fixed the accessibility docs site build during publish.\n\n### Build & Infrastructure\n\n- Removed package.json from cache output.\n- Changed file distribution to copy files to /dist instead of using links.\n- Improved the browser symlink executor.\n- Added missing packages and added the Babel plugin to the versions list.\n- Disabled preserveLocalDependencyProtocols.\n- Fixed authentication during the publish process.\n- Fixed publish setup and updated yarn settings.\n- Fixed the release script and backported changes to 11_0_x.",
+    "processedAt": "2026-03-18T15:15:18.496Z",
+    "githubUrls": [
+      "https://github.com/audioeye/services-v2/commits/staging",
+      "https://github.com/audioeye/a11y-testing/commits/main"
     ]
   },
   {
@@ -214,8 +312,8 @@
       "Fix poor contrast for personalization tools buttons in focus state",
       "Devdocs autorem subsections + debugging tips/walkthrough"
     ],
-    "generatedNotes": "### New Features\n\n- Added additional reporting data slices to report exports for more detailed insights.\n\n### Bug Fixes\n\n- Fixed an error that could occur when scanning pages containing custom HTML elements.\n- Removed a duplicate accessibility label on the launcher widget that could cause confusion for screen reader users.\n- Fixed font loading issues on sites with strict Content Security Policies (CSP).\n- Improved color contrast for personalization tools buttons when focused, ensuring better visibility.\n- Fixed an issue where language changes were not always detected, and consolidated translation handling for more reliable multilingual support.\n\n### Improvements\n\n- Issues previously marked as \"Can't Fix\" are now labeled \"Skip\" for clearer status tracking.\n- Updated PHP, Datadog, and Node.js dependencies to their latest supported versions for improved performance and security.",
-    "processedAt": "2026-03-16T21:33:12.609Z",
+    "generatedNotes": "### New Features\n\n- Added reporting slices to the report payload for more detailed report data.\n\n### Bug Fixes\n\n- Fixed an error that could occur during page rendering when custom elements were present.\n- Removed a duplicate aria label in the launcher to improve screen reader accuracy.\n- Fixed font fallback paths for sites with Content Security Policy (CSP) restrictions.\n- Fixed poor contrast on personalization tools buttons when in focus state.\n- Restored the language change observer and consolidated i18n namespaces to ensure proper language switching.\n\n### Improvements\n\n- Changed the status option from cantFix to skip for more accurate issue categorization.\n- Refined the return type for rule evaluation to improve consistency.\n\n### Maintenance\n\n- Addressed a security vulnerability in a packaging dependency.\n- Updated PHP, Datadog, and Node (v24) to their latest supported versions.\n- Improved build caching for bundles and site menu prebuild.\n- Various internal build, packaging, and code cleanup improvements.\n- Updated internal documentation with new subsections and debugging guidance.",
+    "processedAt": "2026-03-18T15:15:36.337Z",
     "githubUrls": [
       "https://github.com/audioeye/services-v2/commits/staging",
       "https://github.com/audioeye/a11y-testing/commits/main"
@@ -259,8 +357,8 @@
       "fix oss highlighting for rules 10.4+",
       "do not emit eau report unless mars says to"
     ],
-    "generatedNotes": "### New Features\n- Introduced the Locize Translation Launcher for managing translations.\n\n### Improvements\n- Elements hidden from assistive technology now correctly receive the `aria-hidden=\"true\"` attribute.\n- Documentation sidebar now lists release notes with the most recent versions first.\n- Smart remediation patches are no longer planned when smart remediation is turned off in",
-    "processedAt": "2026-03-16T21:33:31.531Z",
+    "generatedNotes": "### New Features\n\n- Added the Locize Translation Launcher for improved internationalization support.\n\n### Improvements\n\n- `setHideFromAT` now applies `aria-hidden=\"true\"` for more reliable assistive technology hiding.\n- Release notes in the documentation sidebar now sort with the latest versions first.\n- When smart rems is turned off in product configuration, the system no longer plans a smart rems patch.\n- Reports are no longer emitted unless explicitly triggered by the server.\n- Exported common types to ensure API code generation works correctly.\n\n### Bug Fixes\n\n- Fixed the accordion example in the documentation.\n- Fixed missing package references.\n- Fixed open-source highlighting for rules version 10.4 and above.\n\n### Security\n\n- Resolved tar and wrangler vulnerabilities.\n- Updated npm in the bundler-nestjs package to address a glob vulnerability.\n\n### Build & Infrastructure\n\n- Created a generator to standardize builds across packages.\n- Switched top-level dist setup to use an nx plugin.\n- Inverted dist symlink setup and added `preserveSymlinks` support.\n- Standardized the overall build setup.\n- Added node externals to builds.\n- Switched a11y-active-scanner, a11y-rules-framework, a11y-rules-tools, a11y-rules-test-helpers, a11y-rules-helpers, and a11y-rules-composite-fixes to use rollup instead of api-extractor.\n- Switched package manager to yarn.\n- Removed the jsdom-based accessibility rule test framework.\n- Removed the compatibility/polyfill build for rules.",
+    "processedAt": "2026-03-18T15:15:52.316Z",
     "githubUrls": [
       "https://github.com/audioeye/a11y-testing/commits/main",
       "https://github.com/audioeye/services-v2/commits/staging"
@@ -292,8 +390,8 @@
       "Add removing newline characters from esapeSelectorText",
       "fix for trapFocus - update focusableItemSelector"
     ],
-    "generatedNotes": "### New Features\n\n- Added translation support to the accessibility rules toolkit for use across other packages.\n- Added MutationIntent infrastructure to support enhanced change detection.\n- Added new domains to the list of allowed service domains.\n\n### Improvements\n\n- Updated translation handling to meet Locize compliance standards.\n- Updated the accessibility rules engine to use the new MARS report.\n- Enabled source fix for the \"Text Size Too Small\" rule so it can be resolved directly.\n- Added removal of newline characters from escaped selector text for more reliable element targeting.\n- Updated documentation for the display-none issue in Weakname guidance.\n- Added updated release notes to DAD.\n- Removed legacy site module rollout code.\n\n### Bug Fixes\n\n- Fixed an issue with focus trapping by updating the focusable item selector.\n\n### Security\n\n- Applied `npm audit fix` across multiple packages and updated `locize-cli` to resolve known vulnerabilities.",
-    "processedAt": "2026-03-16T21:33:40.756Z",
+    "generatedNotes": "### New Features\n\n- Added translation support to accessibility rules tooling for use across packages.\n- Added MutationIntent infrastructure to support detection of dynamic page changes.\n- Added new domains to the list of allowed service domains.\n\n### Improvements\n\n- Updated i18n translation compliance with Locize.\n- Updated documentation for the display none issue in weak name guidance.\n- Removed legacy site module rollout code.\n- Updated open source software reporting to use the new MARS report.\n- Added updated release notes to the DAD documentation.\n- Enabled source fix for the \"Text Size Too Small\" accessibility rule.\n- Added removal of newline characters from escapeSelectorText to improve selector handling.\n\n### Bug Fixes\n\n- Fixed an issue where trapFocus could fail by updating the focusable item selector.\n\n### Security\n\n- Applied `npm audit fix` to resolve a vulnerability in the qs dependency.\n- Applied `npm audit fix` and bumped `locize-cli` to address known CVEs.\n- Applied `npm audit fix` to resolve additional dependency vulnerabilities.",
+    "processedAt": "2026-03-18T15:16:01.402Z",
     "githubUrls": [
       "https://github.com/audioeye/a11y-testing/commits/main",
       "https://github.com/audioeye/services-v2/commits/staging"
@@ -317,8 +415,8 @@
       "update refocusOnClose logic",
       "Form Field auto-complete multiple"
     ],
-    "generatedNotes": "### New Features\n\n- Form fields now support autocomplete with multiple selections.\n\n### Improvements\n\n- Improved compatibility with older browsers by using a safer method for checking element visibility.\n- Updated focus management logic so focus is correctly restored when closing overlays.\n\n### Bug Fixes\n\n- Fixed incorrect naming applied when multiple main landmark elements are present on a page.\n\n### Under the Hood\n\n- Upgraded the backend framework to NestJS 11.\n- Added end-to-end tests for improved error handling reliability.",
-    "processedAt": "2026-03-16T21:33:52.894Z",
+    "generatedNotes": "### New Features\n- Form fields now support auto-complete for multiple values.\n\n### Improvements\n- Updated the underlying framework to NestJS 11.\n- Improved compatibility with older browsers by using safeCheckVisibility in place of element.checkVisibility.\n- Updated refocusOnClose logic for more reliable focus management when closing elements.\n- Improved error handling reliability in frameBudgetScheduler.\n\n### Bug Fixes\n- Fixed incorrect naming when multiple main elements are present on a page.",
+    "processedAt": "2026-03-18T15:16:15.061Z",
     "githubUrls": [
       "https://github.com/audioeye/a11y-testing/commits/main",
       "https://github.com/audioeye/services-v2/commits/staging"
@@ -336,8 +434,8 @@
     "rawChanges": [
       "Html_SkipLink_Missing autofix update"
     ],
-    "generatedNotes": "### Improvements\n\n- Updated the automatic fix for the missing skip navigation link accessibility issue.",
-    "processedAt": "2026-03-16T21:33:56.772Z",
+    "generatedNotes": "### Changes\n\n- Updated the automatic fix for the Html_SkipLink_Missing rule.",
+    "processedAt": "2026-03-18T15:16:18.105Z",
     "githubUrls": [
       "https://github.com/audioeye/a11y-testing/commits/main"
     ]
@@ -387,8 +485,8 @@
       "new doc - compatibility scripts how-to",
       "add mars contract attributes"
     ],
-    "generatedNotes": "### New Features\n\n- Added the ability to restrict the scanner version through the Mars integration.\n- Updated the Mars contract with revised structure and additional attributes.\n\n### Improvements\n\n- Migrated multiple internal packages to a modernized build system for improved performance and reliability.\n- Upgraded the test framework across multiple packages to a faster, more modern test runner.\n- Updated the inclusive-ui package to the latest version.\n\n### Bug Fixes\n\n- Fixed stable ID handling for legacy mutation processing.\n- Removed an outdated configuration file that was no longer in use.\n\n### Documentation\n\n- Added a new how-to guide for compatibility scripts.\n- Updated the README with information about the new release menu.",
-    "processedAt": "2026-03-16T21:34:04.770Z",
+    "generatedNotes": "### New Features\n\n- Added the ability to restrict the scanner version through Mars.\n- Added new Mars contract attributes.\n- Revised the Mars contract.\n\n### Improvements\n\n- Migrated multiple internal packages to a new build system for improved performance and consistency.\n- Migrated multiple internal packages from Jest to Vitest for faster and more reliable testing.\n- Removed legacy configuration files that were no longer in use.\n- Removed the pull request description check from the development workflow.\n- Bumped the `/inclusive-ui` package.\n\n### Bug Fixes\n\n- Fixed a stable ID issue for legacy mutation piping.\n- Fixed test configuration issues across several packages, including polyfill handling, metadata reflection, and test timeouts.\n\n### Documentation\n\n- Added a new how-to guide for compatibility scripts.\n- Updated the README with information about the new release menu.",
+    "processedAt": "2026-03-18T15:16:27.232Z",
     "githubUrls": [
       "https://github.com/audioeye/a11y-testing/commits/main",
       "https://github.com/audioeye/services-v2/commits/staging"
@@ -439,8 +537,8 @@
       "Pipe shouldRunWorkingVersionFixes to a11y-testing scanner",
       "Update the wrangler vitest plugin"
     ],
-    "generatedNotes": "### New Features\n\n- Enhanced FixRadio and FixRadioGroup components to support custom attribute placement.\n- Added a `setDescribedBy` helper function and included it in the documentation.\n- Added iframe guidance to the documentation.\n- Added \"browse all\" as a recognized term in weak link name detection.\n- Working-version fixes can now be passed through to the accessibility testing scanner.\n\n### Improvements\n\n- Improved report performance by caching the last computed report.\n- Optimized loading by dynamically importing the Mars adapter and deferring its API registration.\n- Added a default role group to the component fix for more accurate remediation.\n- Added `stopPropagation` to focus trapping to prevent unintended event bubbling.\n- Suppressed unnecessary console output in production builds.\n- Results marked as \"fix does not apply\" are now filtered out for cleaner reporting.\n\n### Bug Fixes\n\n- Fixed an issue where unique ID generation could fail in certain environments by removing reliance on `crypto.randomUUID` and adding an HTTP-context fallback.\n- Fixed a issue where the link name accessibility check incorrectly flagged affected elements.\n- Resolved a security vulnerability related to the `node-forge` dependency.\n- Applied additional dependency security patches.\n\n### Infrastructure\n\n- Updated CI/CD workflow permissions and authentication for automated merging and publishing.\n- Switched to standard Docker build tooling and updated runner configurations.\n- Updated the Wrangler Vitest plugin.\n- General build and",
-    "processedAt": "2026-03-16T21:34:24.902Z",
+    "generatedNotes": "### New Features\n\n- FixRadio and FixRadioGroup now support custom attribute placement.\n- Added the setDescribedBy helper function to the documentation.\n- Working version fixes can now be piped to the accessibility testing scanner.\n\n### Improvements\n\n- Last computed report is now cached for better performance.\n- Updated the setDescribedBy helper function.\n- Added a default role group to the component fix.\n- Added stopPropagation to trapFocus to prevent unintended event bubbling.\n- Added \"browse all\" to the isWeakName weak-name term list.\n- Suppressed `console.{foo}` output in production builds.\n- Mars adapter is now dynamically imported.\n- Deferred Mars API registration for injectable to improve load behavior.\n- Results marked as fixDoesNotApply are now ignored.\n\n### Bug Fixes\n\n- Fixed an issue where link name was missing affected ability information.\n- Replaced `crypto.randomUUID` with a fallback-compatible approach for generating message IDs, adding support for HTTP contexts.\n- Resolved a node-forge security vulnerability.\n- Applied `npm audit fix` to address additional dependency vulnerabilities.\n\n### Documentation\n\n- Added documentation for iframes.\n- Updated release notes for v10.3.17.\n\n### Infrastructure\n\n- Improved auto merge workflow with corrected permissions, authentication, and bot token usage.\n- Switched runners for publish and internationalization workflows.\n- Switched back to standard Docker buildx.\n- Removed Python from CI actions.\n- Updated the Wrangler Vitest plugin.\n- Applied code freeze backport and brought build changes up to main.",
+    "processedAt": "2026-03-18T15:16:53.782Z",
     "githubUrls": [
       "https://github.com/audioeye/a11y-testing/commits/main",
       "https://github.com/audioeye/services-v2/commits/staging"
@@ -468,8 +566,8 @@
       "update build validation step",
       "try fix publish"
     ],
-    "generatedNotes": "### New Features\n\n- You can now suspend the change watcher directly from the management console.\n- FixRadio and FixRadioGroup components now support custom attribute placement for greater flexibility.\n\n### Improvements\n\n- CSS tracking now captures a broader set of results for more comprehensive monitoring.\n- Fix reports now include an `isAutoFix` indicator so you can distinguish between automatic and manual fixes.\n- Improved CSS detection by leveraging the browser's built-in API for more reliable results.\n- Increased processing parallelism for faster scan and fix performance.\n\n### Bug Fixes\n\n- Fix states are now correctly preserved in the fix tracker once set, preventing unintended resets.\n- HTML attributes now consistently use single quotes, resolving potential rendering inconsistencies.\n- Resolved an issue that could prevent successful publishing of fixes.\n\n### Maintenance\n\n- Updated the build validation step to improve release reliability.",
-    "processedAt": "2026-03-16T21:34:35.438Z",
+    "generatedNotes": "### New Features\n\n- Added the ability to suspend the change watcher from the dashboard.\n- Fix reports now include an isAutoFix field indicating whether a fix was applied automatically.\n\n### Improvements\n\n- Expanded CSS tracking to capture additional results for more comprehensive coverage.\n- Enhanced FixRadio and FixRadioGroup components to support custom attribute placement.\n- Switched to an internal helper for CSS detection instead of relying on the browser API.\n- Increased processing parallelism to improve performance.\n\n### Bug Fixes\n\n- Fixed an issue where the fix state in fixTracker could be lost after being set.\n- HTML attributes now consistently use single quotes to ensure valid output.\n\n### Build & Infrastructure\n\n- Updated the build validation step.\n- Fixed an issue with the publish process.",
+    "processedAt": "2026-03-18T15:17:04.302Z",
     "githubUrls": [
       "https://github.com/audioeye/a11y-testing/commits/main",
       "https://github.com/audioeye/services-v2/commits/staging"
@@ -493,8 +591,8 @@
       "update relase workflow",
       "recombine mars output adapter"
     ],
-    "generatedNotes": "### New Features\n\n- Added a new manual rule to flag when focus is not moved to a form field error message (`Manual_FormField_ErrorFocus_Missing`).\n\n### Improvements\n\n- Added auto-accept functionality and fixed environment reference handling.\n- Rule names are now included in composite fix documentation for easier reference.\n- Recombined the output adapter for more consistent scan results.\n\n### Infrastructure Updates\n\n- Updated publish scripts to support the new version scheme.\n- Added a release app token to support the backport process.\n- Updated the release workflow for improved reliability.",
-    "processedAt": "2026-03-16T21:34:48.793Z",
+    "generatedNotes": "### New Features\n\n- Added a new manual accessibility rule: **Manual_FormField_ErrorFocus_Missing**, which checks that focus is correctly moved to form field errors.\n\n### Improvements\n\n- Recombined the Mars output adapter for more streamlined results processing.\n- Added rule names to composite fix documentation for easier reference.\n\n### Infrastructure Updates\n\n- Added auto-accept support and fixed an environment reference issue.\n- Updated publish scripts to support the new version scheme.\n- Added a release app token to enable backport workflows.\n- Updated the release workflow for improved reliability.",
+    "processedAt": "2026-03-18T15:17:15.203Z",
     "githubUrls": [
       "https://github.com/audioeye/a11y-testing/commits/main"
     ]
@@ -537,8 +635,8 @@
       "add additional backport options",
       "zero out all the package versions, link by file"
     ],
-    "generatedNotes": "### New Features\n\n- Added mutation tracking to detect and respond to dynamic changes in the DOM.\n- Added shadow DOM support for CSS selector analysis.\n- Added element-level tracking and reporting for more granular accessibility insights.\n- Added CSS output adapter for improved style-related accessibility reporting.\n- Added site menu translation support for additional localization coverage.\n- Added an identifier option for the Babel `addEventListener` override.\n- Added support for dynamic public path configuration.\n\n### Improvements\n\n- Improved overall platform performance by deferring additional computation to report time.\n- Modernized and updated the Mars output adapter to support new data types.\n- Reorganized error logging and element rule result output adapters for better maintainability.\n\n### Bug Fixes\n\n- Fixed an issue with form field accessibility detection.\n- Fixed an issue with the tracker output adapter.\n- Fixed errors in the backport release workflow.\n\n### Documentation\n\n- Added documentation with examples for controlling focus behavior.\n- Updated the rules and fixes documentation.\n\n### Testing\n\n- Added unit tests for the MarsOutputAdapter.\n- Added unit tests for the ElementRuleResultsOutputAdapter.",
-    "processedAt": "2026-03-16T21:34:59.491Z",
+    "generatedNotes": "### New Features\n\n- Added site menu translation support via Locize for improved internationalization.\n- Added a Mutation Tracker for monitoring DOM changes.\n- Added shadow DOM support to CSS selector handling.\n- Added an identifier option in the babel addEventListener override.\n- Created a new element-level adapter.\n- Created the ElementTrackerOutputAdapter.\n- Added a result tracker output adapter.\n- Added a CSS output adapter.\n- Added dynamic publicPath support.\n\n### Performance\n\n- Improved general performance across several areas.\n- Deferred additional computation until report time for faster processing.\n\n### Bug Fixes\n\n- Fixed an issue with form field handling.\n- Fixed tracker output adapter issues.\n- Fixed backport workflow issues.\n\n### Improvements\n\n- Updated and modernized the Mars output adapter.\n- Updated output types to support new data.\n- Moved the error logging adapter to a more appropriate location.\n- Moved the element rule result output adapter.\n- Added unit tests for MarsOutputAdapter and ElementRuleResultsOutputAdapter.\n\n### Documentation\n\n- Added a controlling focus examples document.\n- Updated the rules and fixes documentation.\n\n### Build & Release\n\n- Updated the release process to allow specifying a particular version.\n- Added additional backport options.\n- Standardized package versions and updated dependency linking.",
+    "processedAt": "2026-03-18T15:17:29.821Z",
     "githubUrls": [
       "https://github.com/audioeye/a11y-testing/commits/main",
       "https://github.com/audioeye/services-v2/commits/staging"
@@ -578,8 +676,8 @@
       "fixradiogroup details",
       "make latest branch dynamic"
     ],
-    "generatedNotes": "### Bug Fixes\n\n- Form field rules now correctly sanitize element IDs before querying, preventing potential matching errors.\n- Fixed an issue that could cause workflow failures.\n\n### Security Updates\n\n- Updated a third-party dependency (lodash) to address a known security vulnerability.\n\n### Improvements\n\n- Documentation is now more searchable, making it easier to find relevant content.\n- The latest release branch is now determined dynamically instead of being hardcoded.\n\n### Documentation\n\n- Added troubleshooting pages for tab sets, modals, radio groups, listboxes, comboboxes, form fields, checkboxes, and accordions.\n- Added a documentation page for label fix examples.\n- Added screenshot examples to documentation.\n- Added a Shadow DOM root example for the watch feature.\n- Added an improved example for form error handling.\n- Updated the fix example for using `aria-hidden` and `role=\"presentation\"`.\n- Added additional details to the radio group fix documentation.",
-    "processedAt": "2026-03-16T21:35:17.438Z",
+    "generatedNotes": "### Bug Fixes\n\n- Form field rules now properly sanitize IDs before querying them.\n\n### Security\n\n- Updated lodash to address a known vulnerability.\n\n### Documentation\n\n- Added troubleshooting page for fixTabset.\n- Added troubleshooting page for fixModal.\n- Added troubleshooting page for fixRadiogroup, including additional details.\n- Added troubleshooting page for fixListbox.\n- Added troubleshooting section for fixCombobox.\n- Added troubleshooting page for fixFormField.\n- Added troubleshooting section for fixCheckbox.\n- Added troubleshooting section for fixAccordion.\n- Added labels fix examples and documentation page.\n- Updated fix example for using `aria-hidden` or role presentation.\n- Added shadow root example to watch documentation.\n- Added a better form error handling example.\n- Added screenshot examples.\n- Improved documentation search functionality.\n\n### Internal Improvements\n\n- Converted `getFormatForRemediations` to TypeScript.\n- Converted `shadowDomUtils` to TypeScript.\n- Shifted to nx release.\n- Fixed CI workflow.\n- Made the latest branch reference dynamic.",
+    "processedAt": "2026-03-18T15:17:39.471Z",
     "githubUrls": [
       "https://github.com/audioeye/a11y-testing/commits/main",
       "https://github.com/audioeye/services-v2/commits/staging"
@@ -613,8 +711,8 @@
       "Make the text site smaller with IT",
       "Test"
     ],
-    "generatedNotes": "### Bug Fixes\n\n- Fixed a screen reader issue where SVG icons in the carousel component were incorrectly announced.\n- Fixed a screen reader issue that caused radio elements to not be read correctly.\n- Fixed an issue where long text in buttons could overflow or display incorrectly.\n\n### Improvements\n\n- Improved performance when processing large page elements by optimizing internal text handling.\n- Updated the Open Dyslexic font setting for a better reading experience.\n\n### Documentation\n\n- Added trap focus guidance to the Dynamic Accessible Description documentation.\n- Added new rules and relationships documentation.",
-    "processedAt": "2026-03-16T21:35:28.532Z",
+    "generatedNotes": "### Bug Fixes\n- Fixed a screen reader issue on radio elements.\n- Fixed a CSS issue where long text in buttons could display incorrectly.\n- Removed an incorrect code snippet.\n\n### Improvements\n- Added aria-hidden to the SVG icon in the accessible carousel component to improve screen reader behavior.\n- Updated the Open Dyslexic font setting.\n- Improved performance by using a simplified regex instead of trimming large elements.\n- Reduced text size for the Italian localization.\n\n### Documentation\n- Added trap focus information to the DAD documentation.\n- Added new rules and relationships documentation.\n- Updated the README for the accessibility documentation site.",
+    "processedAt": "2026-03-18T15:18:00.700Z",
     "githubUrls": [
       "https://github.com/audioeye/services-v2/commits/staging",
       "https://github.com/audioeye/a11y-testing/commits/main"
@@ -642,8 +740,8 @@
       "Update `eslint`",
       "Switch from `withTranslation` to `useTranslation`"
     ],
-    "generatedNotes": "### Improvements\n\n- Migrated HelpDesk translations to the Locize platform for more reliable and up-to-date localization.\n- Removed legacy HelpDesk translation files that have been fully migrated to the new localization system.\n- Added new translations for open-source components to improve multilingual support.\n- Modernized translation handling across the platform for improved performance and consistency.\n- Replaced legacy jQuery code with modern browser APIs for better performance and reliability.\n- Updated TypeScript to version 5 for improved stability and developer tooling.\n\n### Maintenance\n\n- Applied automated code-quality fixes and updated linting tools across the codebase.\n- Performed routine branch maintenance and configuration updates.",
-    "processedAt": "2026-03-16T21:35:40.452Z",
+    "generatedNotes": "### Internationalization\n\n- Migrated HelpDesk translation files to the Locize translation management platform and removed legacy files\n- Added translations for OSS content\n- Switched from `withTranslation` to `useTranslation` for improved translation handling\n\n### Improvements\n\n- Replaced some jQuery usage with native browser APIs for better performance and reduced dependencies\n\n### Maintenance\n\n- Updated TypeScript to v5\n- Updated `eslint` and applied automated lint fixes\n- Performed internal branch maintenance and configuration backports",
+    "processedAt": "2026-03-18T15:18:09.844Z",
     "githubUrls": [
       "https://github.com/audioeye/a11y-testing/commits/main",
       "https://github.com/audioeye/services-v2/commits/staging"
@@ -668,8 +766,8 @@
       "Fix webpack bundle analyzer",
       "Move `React` `i18n` init out of normal initialization"
     ],
-    "generatedNotes": "### Bug Fixes\n\n- Fixed an issue where active monitor reports were incorrectly sent while the VCP was visible.\n- Resolved various issues introduced by a recent update.\n- Restored the `jquery-migrate` library to maintain compatibility with existing functionality.\n- Fixed an issue with the build tooling configuration.\n\n### Improvements\n\n- Upgraded the internal routing library for improved stability and performance.\n- Modernized internal components for better performance and reliability.\n- Updated build configuration to better support translations.\n- Optimized how translated content is initialized for faster load times.",
-    "processedAt": "2026-03-16T21:35:56.282Z",
+    "generatedNotes": "### Bug Fixes\n\n- Fixed an issue where active monitor reports were incorrectly sent while the VCP was visible.\n- Restored `jquery-migrate` to ensure continued compatibility with legacy functionality.\n- Fixed various issues caused by a previous update.\n- Fixed an issue with the build tooling configuration.\n\n### Improvements\n\n- Upgraded `react-router` to a newer version.\n- Updated webpack configuration to better support translations.\n- Moved React internationalization initialization out of the normal startup process for improved loading behavior.\n- Converted React class components to function components for improved performance and maintainability.",
+    "processedAt": "2026-03-18T15:18:17.099Z",
     "githubUrls": [
       "https://github.com/audioeye/services-v2/commits/staging"
     ]
@@ -697,8 +795,8 @@
       "Use `/preset-env` to pick transforms",
       "add role link to VTK topbar"
     ],
-    "generatedNotes": "### New Features\n\n- Added a new rule to detect when an HTML page is missing a title.\n\n### Improvements\n\n- Added an accessible label to the input toggle in the visual testing toolkit.\n- Added a link role to the visual testing toolkit top bar for improved navigation.\n\n### Scanner Updates\n\n- Updated the active scanner from version 10.3.5 to 10.3.6.\n\n### Infrastructure & Maintenance\n\n- Improved internationalization initialization for more reliable language support.\n- Improved internal state management for embedded messaging.\n- Updated package dependencies to their latest versions.\n- Migrated to the latest jQuery version using jquery-migrate for compatibility.\n- Adopted preset-env for more efficient code transforms.\n- Reinstated rule specification tests for improved test coverage.",
-    "processedAt": "2026-03-16T21:36:07.042Z",
+    "generatedNotes": "### New Features\n\n- Added a new rule to detect when an HTML page is missing a title (`Html_Page_Title_Missing`).\n\n### Improvements\n\n- Added an accessible label to the input toggle in the VTK.\n- Added a `role=\"link\"` attribute to the VTK topbar for improved accessibility.\n- Improved internationalization initialization for more reliable language support.\n- The postMessage state for open-source integrations is now stored for more consistent behavior.\n- Updated build configuration to use `/preset-env` for selecting transforms automatically.\n- Adopted `jquery-migrate` to support upgrading to the latest `jquery` version.\n\n### Bug Fixes\n\n- Reinstated ruleSpecs tests to ensure continued rule validation coverage.\n\n### Dependency Updates\n\n- Bumped general package dependencies to their latest versions.\n- Updated active scanner from 10.3.5 to 10.3.6.\n- Updated the accessibility active scanner event API to 10.3.6.",
+    "processedAt": "2026-03-18T15:18:28.728Z",
     "githubUrls": [
       "https://github.com/audioeye/services-v2/commits/staging",
       "https://github.com/audioeye/a11y-testing/commits/main"
@@ -720,8 +818,8 @@
       "Cherry pick the `semver` function we use",
       "Heading_Sequence_Wrong"
     ],
-    "generatedNotes": "### New Features\n\n- Added a new **Heading Sequence Wrong** rule to detect when heading levels are out of order on a page.\n\n### Improvements\n\n- Upgraded the rendering engine to use a more modern API for improved performance and compatibility.\n- Reduced the overall package size by streamlining internal dependencies.\n- Improved the reliability of automated tests to ensure more consistent quality checks.",
-    "processedAt": "2026-03-16T21:36:17.926Z",
+    "generatedNotes": "### New Features\n\n- Added a new `Heading_Sequence_Wrong` rule to detect incorrect heading level sequences on your pages\n\n### Improvements\n\n- Upgraded to a modern React rendering API for improved performance and compatibility\n- Optimized internal dependency usage for the `semver` utility\n- Improved test reliability for more consistent platform stability",
+    "processedAt": "2026-03-18T15:18:37.029Z",
     "githubUrls": [
       "https://github.com/audioeye/services-v2/commits/staging",
       "https://github.com/audioeye/a11y-testing/commits/main"
@@ -756,8 +854,8 @@
       "Fix the bundle analyzer",
       "second try | Fix the toogleShortcuts issue"
     ],
-    "generatedNotes": "### Accessibility Improvements\n\n- Reset options in the testing tool now announces a success confirmation to screen readers.\n- Submitting an invalid radio selection now moves focus to the error message for easier correction.\n- Radio inputs in the testing tool now include additional instructions for arrow key navigation.\n- Aria level attributes in the testing tool can now be overridden as needed.\n\n### Bug Fixes\n\n- Fixed an issue where keyboard shortcuts could not be toggled on and off correctly.\n- Resolved a security vulnerability in a third-party networking library.\n\n### Maintenance and Infrastructure\n\n- Removed unused packages and legacy code to reduce overall bundle size.\n- Updated core dependency packages and aligned browser and build targets.\n- Upgraded build tooling, testing frameworks, and related configurations.\n- Switched to a standard module-based approach for loading jQuery.\n- Converted internal localization setup to TypeScript for improved reliability.\n- Renamed internal storage module to better reflect its use of local storage.\n- Removed unused tooltip helper functions.\n- Fixed the bundle analysis tooling.\n- Updated the image promotion script to handle exceptions more gracefully.",
-    "processedAt": "2026-03-16T21:36:30.328Z",
+    "generatedNotes": "### New Features\n\n- VTK reset options now includes an aria live announcement to indicate success state\n- VTK now sends focus to the error message when an invalid radio option is submitted\n- VTK now provides arrow key navigation instructions on radio inputs\n- VTK now supports aria level override\n\n### Bug Fixes\n\n- Fixed a security vulnerability in the Axios dependency\n- Fixed the toogleShortcuts issue\n- Fixed the bundle analyzer\n\n### Improvements\n\n- Converted `initializeI18n` to TypeScript\n- Renamed `cookiesCore` to `localStorage`\n- Removed unused functions from jQuery Tipsy\n- Updated the promote-test-image-to-prod script to no longer exit on exceptions\n\n### Build & Tooling\n\n- Removed unused packages\n- Updated `` packages\n- Removed `jshint` and all references to it\n- Stopped using `ts-loader`\n- Updated browser and build targets\n- Updated Babel and Jest packages\n- Switched to using `jquery` from `node_modules`",
+    "processedAt": "2026-03-18T15:18:44.695Z",
     "githubUrls": [
       "https://github.com/audioeye/services-v2/commits/staging"
     ]
@@ -782,8 +880,8 @@
       "Use `i18n` on window object instead of importing",
       "Typescript some files"
     ],
-    "generatedNotes": "### New Features\n\n- Added a new **Skip Link Missing** accessibility rule to detect when pages are missing skip navigation links.\n\n### Improvements\n\n- Updated color styles in the HelpDesk for a refreshed appearance.\n- Updated compliance class type definitions for improved accuracy.\n- Switched internationalization to use a shared global instance for more consistent translations.\n\n### Bug Fixes\n\n- Fixed an issue where certain HelpDesk guide content could appear hidden due to a CSS rendering rule.\n\n### Internal\n\n- Ran code formatting across JavaScript and TypeScript files for consistency.\n- Added a workflow to validate pull request descriptions automatically.\n- Converted additional files to TypeScript for improved code reliability.",
-    "processedAt": "2026-03-16T21:36:42.584Z",
+    "generatedNotes": "### New Features\n\n- Added a new `Html_SkipLink_Missing` accessibility rule to detect when skip navigation links are missing from a page.\n\n### Improvements\n\n- Updated the global type for the compliance class.\n- Updated HelpDesk color styles for a refreshed appearance.\n- Internationalization (`i18n`) is now accessed from the window object instead of being imported directly.\n\n### Bug Fixes\n\n- Fixed an issue in the HelpDesk guide where content was hidden due to a CSS `:empty` rule being incorrectly applied.\n\n### Internal\n\n- Ran `prettier` formatting on `js` and `ts` files.\n- Added a GitHub workflow to validate pull request descriptions.\n- Converted additional files to TypeScript.",
+    "processedAt": "2026-03-18T15:18:59.073Z",
     "githubUrls": [
       "https://github.com/audioeye/services-v2/commits/staging",
       "https://github.com/audioeye/a11y-testing/commits/main"
@@ -808,13 +906,10 @@
       "Update more files to ES6",
       "add aria-disabled true to Html_PresentationChildren_Tabbable rule",
       "Html_Possible_Heading refactor logic, add more testing",
-      "Html_AriaHidden_Tabable",
-      "style check in getElementText",
-      "getComputedStyles in scheduler CachedElementComputation",
-      "Merge 10_2 into 10_4"
+      "Html_AriaHidden_Tabable"
     ],
-    "generatedNotes": "### New Accessibility Rules\n\n- Added a new rule to detect when interactive elements are missing a visible focus indicator.\n- Added a new rule to flag redundant alternative text on linked images.\n- Added a new rule to identify elements hidden with `aria-hidden` that are still reachable via keyboard.\n\n### New Features\n\n- Added automatic detection of cookie consent modals during page analysis.\n\n### Improvements\n\n- The presentational children tabbable rule now accounts for elements marked with `aria-disabled=\"true\"`.\n- Improved detection logic and expanded test coverage for the possible heading rule.\n- Improved accuracy of text extraction by incorporating element style checks.\n- Improved scan performance by caching computed styles during element evaluation.\n\n### Infrastructure Updates\n\n- Updated PHP to version 8.4.\n- Replaced legacy jQuery calls with native browser functions for improved performance.\n- Migrated additional files to modern ES6 JavaScript syntax.",
-    "processedAt": "2026-03-16T21:36:54.084Z",
+    "generatedNotes": "### New Accessibility Rules\n\n- Added the **Element_Focus_Visible_Missing** rule to detect elements that lack a visible focus indicator.\n- Added the **Link_Img_Alt_Redundant** rule to flag links with images that have redundant alt text.\n- Added the **Html_AriaHidden_Tabable** rule to detect elements hidden from assistive technologies that are still keyboard-focusable.\n\n### New Features\n\n- Added detection for cookie consent modals to improve scanning accuracy.\n\n### Improvements\n\n- The **Html_PresentationChildren_Tabbable** rule now accounts for elements with aria-disabled=\"true\".\n- Improved detection logic and expanded test coverage for the **Html_Possible_Heading** rule.\n- Replaced some jQuery usage with native browser functions for better performance.\n- Migrated additional files to ES6 for improved code consistency.\n- Updated PHP to version 8.4.",
+    "processedAt": "2026-03-18T15:19:07.698Z",
     "githubUrls": [
       "https://github.com/audioeye/a11y-testing/commits/main",
       "https://github.com/audioeye/services-v2/commits/staging"

@@ -8,9 +8,15 @@ You will receive a numbered list of internal change descriptions. Your job is to
 2. Group related changes under concise category headings (e.g. "Bug Fixes", "Improvements", "New Features")
 3. Return valid Markdown only — no preamble, no explanation
 4. Always use ### (h3) for category headings — never use # or ##
+5. Keep camelCase words in the output as is (e.g. "setDescribedBy"))
 
 If there is only one change or all changes are the same type, a single ### Changes heading is fine.
-Keep each bullet to one sentence. Do not add detail that wasn't in the original descriptions.`;
+Keep each bullet to one sentence. Do not add detail that wasn't in the original descriptions.
+
+Some extra information on our internal acronyms:
+- RTE: Real time effects
+- i18n: Internationalization
+`;
 
 const MAX_RETRIES = 3;
 

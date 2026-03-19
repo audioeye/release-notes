@@ -4,6 +4,10 @@ on:
   # Run every Monday at 8:00 AM UTC — start of a new week
   schedule:
     - cron: '0 8 * * 1'
+  # Triggered by source repos (services-v2, a11y-testing) after a successful deploy.
+  # Source repos POST to this repo's dispatches endpoint with event_type: deploy-complete.
+  repository_dispatch:
+    types: [deploy-complete]
   # Also run on pushes to main (e.g. config or prompt changes)
   push:
     branches: [main]
