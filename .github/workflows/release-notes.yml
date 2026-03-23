@@ -63,7 +63,7 @@ jobs:
           GITHUB_REPOS: https://github.com/audioeye/services-v2@staging,https://github.com/audioeye/a11y-testing@main
           SITE_TITLE: AudioEye Release Notes
           SITE_DESCRIPTION: Latest updates and improvements to AudioEye products and services
-          SITE_BASE_URL: https://audioeye.github.io/release-notes
+          SITE_BASE_URL: https://releases.audioeye.com
         run: npm run generate
 
       - name: Commit cache updates
