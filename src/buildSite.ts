@@ -2,17 +2,32 @@ import { marked, Renderer } from 'marked';
 import { config } from './config.js';
 import type { ProcessedRelease } from './types.js';
 
-// Force all headings inside release notes to <h3> regardless of the markdown
-// level the model produces, so the page heading hierarchy stays consistent:
+// Release notes markdown: ## repo name, ### category. Map to HTML so the outline
+// matches the article shell:
 //   <h1>  site title
-//   <h2>  release date
-//   <h3>  category (Bug Fixes, Improvements, …)
+//   <h2>  release date (article)
+//   <h3>  repository (from ##)
+//   <h4>  category (from ###)
 const notesRenderer = new Renderer();
-notesRenderer.heading = ({ text }) => `<h3>${text}</h3>\n`;
+notesRenderer.heading = function (this: Renderer, { tokens, depth }) {
+  const inner = this.parser.parseInline(tokens);
+  if (depth === 2) {
+    return `<h3 class="release-repo">${inner}</h3>\n`;
+  }
+  if (depth === 3) {
+    return `<h4 class="release-category">${inner}</h4>\n`;
+  }
+  return `<h4>${inner}</h4>\n`;
+};
 
-function formatDate(dateStr: string): string {
-  const date = new Date(dateStr);
-  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+/** `id` is a UTC calendar day key (YYYY-MM-DD) from the release pipeline */
+function formatReleaseCalendarDay(dayKey: string): string {
+  return new Date(`${dayKey}T12:00:00Z`).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC',
+  });
 }
 
 function toRfc822(dateStr: string): string {
@@ -28,13 +43,50 @@ function escapeXml(str: string): string {
     .replace(/'/g, '&apos;');
 }
 
+const NO_CUSTOMER_FACING_TEXT = /no customer-facing changes/i;
+
+/**
+ * Remove repo sections that only state "No customer-facing changes".
+ * If all sections are removed, returns an empty string.
+ */
+function stripNoCustomerFacingSections(notes: string): string {
+  const trimmed = notes.trim();
+  if (!trimmed) return '';
+
+  // Notes are expected as repo sections: "## repo ...". Keep only sections
+  // that do not contain no-customer-facing placeholders.
+  if (trimmed.startsWith('## ')) {
+    const sections = trimmed.split(/\n(?=##\s)/g);
+    const kept = sections.filter((section) => !NO_CUSTOMER_FACING_TEXT.test(section));
+    return kept.join('\n\n').trim();
+  }
+
+  if (
+    NO_CUSTOMER_FACING_TEXT.test(trimmed) ||
+    trimmed === '_No customer-facing changes in this release._' ||
+    trimmed === '_No notes generated._'
+  ) {
+    return '';
+  }
+
+  return trimmed;
+}
+
+/** Omit releases that become empty after stripping no-customer-facing content. */
+function releaseHasCustomerFacingContent(release: ProcessedRelease): boolean {
+  return stripNoCustomerFacingSections(release.generatedNotes).length > 0;
+}
+
 export function buildHtml(releases: ProcessedRelease[]): string {
   const { title, description, baseUrl } = config.site;
 
-  const releaseItems = releases
+  const visibleReleases = releases.filter(releaseHasCustomerFacingContent);
+
+  const releaseItems = visibleReleases
     .map((release) => {
-      const html = marked.parse(release.generatedNotes, { renderer: notesRenderer }) as string;
-      const formattedDate = formatDate(release.date);
+      const notes = stripNoCustomerFacingSections(release.generatedNotes);
+      const html = marked.parse(notes, { renderer: notesRenderer }) as string;
+      const formattedDate = formatReleaseCalendarDay(release.id);
       return `
     <article class="release">
       <h2 class="release-date">${escapeXml(formattedDate)}</h2>
@@ -151,18 +203,32 @@ export function buildHtml(releases: ProcessedRelease[]): string {
       margin-bottom: 1rem;
     }
 
+    /* Repository subheading (markdown ##) */
+    .release-notes h3.release-repo {
+      font-size: .9rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--color-text);
+      margin: 1.75rem 0 0.35rem;
+      text-transform: none;
+    }
+
+    .release-notes h3.release-repo:first-child {
+      margin-top: 0;
+    }
+
     /* Category labels — match AudioEye's uppercase spaced-out label style */
-    .release-notes h3 {
+    .release-notes h4.release-category {
       font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--color-accent);
-      margin: 1.4rem 0 0.5rem;
+      margin: 1.25rem 0 0.5rem;
     }
 
-    .release-notes h3:first-child {
-      margin-top: 0;
+    .release-notes h3.release-repo + h4.release-category {
+      margin-top: 0.65rem;
     }
 
     .release-notes ul {
@@ -218,9 +284,12 @@ export function buildHtml(releases: ProcessedRelease[]): string {
 export function buildRss(releases: ProcessedRelease[]): string {
   const { title, description, baseUrl } = config.site;
 
-  const items = releases
+  const visibleReleases = releases.filter(releaseHasCustomerFacingContent);
+
+  const items = visibleReleases
     .map((release) => {
-      const html = marked.parse(release.generatedNotes, { renderer: notesRenderer }) as string;
+      const notes = stripNoCustomerFacingSections(release.generatedNotes);
+      const html = marked.parse(notes, { renderer: notesRenderer }) as string;
       const itemUrl = `${baseUrl}/#${release.tag}`;
       return `    <item>
       <title>${escapeXml(release.name)}</title>

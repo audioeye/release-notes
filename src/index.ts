@@ -10,28 +10,21 @@ import type { ProcessedRelease } from './types.js';
 import type { RepoCommit } from './fetchCommits.js';
 
 const CACHE_FILE = path.join(config.paths.data, 'releases.json');
+const NO_CUSTOMER_FACING_TEXT = /no customer-facing changes/i;
 
-// Returns the Monday of the ISO week containing the given date, as "YYYY-MM-DD"
-function weekStartDate(dateStr: string): string {
-  const d = new Date(dateStr);
-  const day = d.getUTCDay(); // 0 = Sun, 1 = Mon, …
-  const daysToMonday = day === 0 ? -6 : 1 - day;
-  const monday = new Date(
-    Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate() + daysToMonday),
-  );
-  return monday.toISOString().split('T')[0];
+// UTC calendar day of the commit author timestamp, "YYYY-MM-DD"
+function utcCalendarDay(dateStr: string): string {
+  return new Date(dateStr).toISOString().split('T')[0];
 }
 
-// Returns true once the full week (Mon–Sun) has passed
-function isCompleteWeek(weekStart: string): boolean {
-  const sunday = new Date(weekStart);
-  sunday.setUTCDate(sunday.getUTCDate() + 6);
-  sunday.setUTCHours(23, 59, 59, 999);
-  return sunday < new Date();
+// True once the entire UTC calendar day has ended (so we can freeze cache for that day)
+function isCompleteDay(dayKey: string): boolean {
+  const endUtc = new Date(`${dayKey}T23:59:59.999Z`);
+  return endUtc < new Date();
 }
 
-function weekLabel(weekStart: string): string {
-  return new Date(weekStart + 'T00:00:00Z').toLocaleDateString('en-US', {
+function calendarDayLabel(dayKey: string): string {
+  return new Date(`${dayKey}T00:00:00Z`).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -39,21 +32,23 @@ function weekLabel(weekStart: string): string {
   });
 }
 
-// Groups commits by weekStart only, merging all repos into a single entry per week
-function groupByWeek(
-  commits: RepoCommit[],
-): Map<string, { weekStart: string; commits: RepoCommit[] }> {
-  const groups = new Map<string, { weekStart: string; commits: RepoCommit[] }>();
+// One release entry per UTC calendar day (commits grouped by author date)
+function groupByDay(commits: RepoCommit[]): Map<string, RepoCommit[]> {
+  const groups = new Map<string, RepoCommit[]>();
 
   for (const commit of commits) {
-    const ws = weekStartDate(commit.commit.author.date);
-    if (!groups.has(ws)) {
-      groups.set(ws, { weekStart: ws, commits: [] });
-    }
-    groups.get(ws)!.commits.push(commit);
+    const day = utcCalendarDay(commit.commit.author.date);
+    if (!groups.has(day)) groups.set(day, []);
+    groups.get(day)!.push(commit);
   }
 
-  // Sort newest week first
+  for (const [, dayCommits] of groups) {
+    dayCommits.sort(
+      (a, b) =>
+        new Date(b.commit.author.date).getTime() - new Date(a.commit.author.date).getTime(),
+    );
+  }
+
   return new Map([...groups.entries()].sort((a, b) => b[0].localeCompare(a[0])));
 }
 
@@ -71,6 +66,37 @@ async function saveCache(releases: ProcessedRelease[]): Promise<void> {
   await fs.writeFile(CACHE_FILE, JSON.stringify(releases, null, 2));
 }
 
+function stripNoCustomerFacingSections(notes: string): string {
+  const trimmed = notes.trim();
+  if (!trimmed) return '';
+
+  if (trimmed.startsWith('## ')) {
+    const sections = trimmed.split(/\n(?=##\s)/g);
+    const kept = sections.filter((section) => !NO_CUSTOMER_FACING_TEXT.test(section));
+    return kept.join('\n\n').trim();
+  }
+
+  if (
+    NO_CUSTOMER_FACING_TEXT.test(trimmed) ||
+    trimmed === '_No customer-facing changes in this release._' ||
+    trimmed === '_No notes generated._'
+  ) {
+    return '';
+  }
+
+  return trimmed;
+}
+
+function pruneRelease(release: ProcessedRelease): ProcessedRelease | null {
+  const cleanedNotes = stripNoCustomerFacingSections(release.generatedNotes);
+  if (!cleanedNotes) return null;
+
+  return {
+    ...release,
+    generatedNotes: cleanedNotes,
+  };
+}
+
 async function writeOutput(html: string, rss: string): Promise<void> {
   await fs.mkdir(config.paths.output, { recursive: true });
   await fs.writeFile(path.join(config.paths.output, 'index.html'), html);
@@ -81,7 +107,7 @@ function sinceDate(cached: ProcessedRelease[]): string {
   if (cached.length === 0) {
     // First run — limit history to six months to avoid processing everything
     const sixMonthsAgo = new Date();
-    sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+    sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 3);
     return sixMonthsAgo.toISOString();
   }
   // Incremental — fetch only commits newer than the latest one already processed
@@ -96,69 +122,89 @@ async function main() {
   const repoList = config.github.repos.map((r) => `${r.owner}/${r.repo}@${r.branch}`).join(', ');
   console.log(`Fetching commits from: ${repoList}`);
 
-  const cached = await loadCache();
+  const cached = (await loadCache()).flatMap((r) => {
+    const pruned = pruneRelease(r);
+    return pruned ? [pruned] : [];
+  });
   const since = sinceDate(cached);
   const allCommits = await fetchAllCommits(since);
 
-  const weekGroups = groupByWeek(allCommits);
-  console.log(`Found ${allCommits.length} commits across ${weekGroups.size} week(s).`);
+  const dayGroups = groupByDay(allCommits);
+  console.log(`Found ${allCommits.length} commits across ${dayGroups.size} UTC day(s).`);
 
-  // Only skip a week if it's fully complete AND already cached
+  // Drop in-progress UTC days so they are regenerated on each run; keep frozen days from cache
   const cachedKeys = new Set(cached.map((r) => r.cacheKey));
-  const processed: ProcessedRelease[] = [...cached.filter((r) => isCompleteWeek(r.id))];
+  const processed: ProcessedRelease[] = [...cached.filter((r) => isCompleteDay(r.id))];
   let newCount = 0;
 
-  for (const [weekStart, group] of weekGroups) {
-    const { commits: weekCommits } = group;
+  for (const [dayKey, dayCommits] of dayGroups) {
+    // Skip complete days that are already cached
+    if (isCompleteDay(dayKey) && cachedKeys.has(dayKey)) continue;
 
-    // Skip complete weeks that are already cached
-    if (isCompleteWeek(weekStart) && cachedKeys.has(weekStart)) continue;
-
-    // Unique repos that contributed commits this week
-    const repos = [...new Set(weekCommits.map((c) => `${c.owner}/${c.repo}`))];
+    const repos = [...new Set(dayCommits.map((c) => `${c.owner}/${c.repo}`))];
 
     console.log(
-      `\nProcessing week of ${weekStart} (${repos.join(', ')}) — ${weekCommits.length} commit(s)…`,
+      `\nProcessing ${dayKey} (${calendarDayLabel(dayKey)}) — ${repos.join(', ')} — ${dayCommits.length} commit(s)…`,
     );
 
-    const rawChanges = parseCommitMessages(weekCommits.map((c) => c.commit.message));
-    console.log(`  ${rawChanges.length} change(s) after filtering merge commits and cleaning.`);
-    rawChanges.forEach((c) => console.log(`    - ${c}`));
+    const reposWithCommits = new Set(dayCommits.map((c) => `${c.owner}/${c.repo}`));
+    const repoSections: string[] = [];
+    const rawChanges: string[] = [];
 
-    if (rawChanges.length === 0) {
-      console.log('  Skipping — no customer-facing changes.');
+    for (const { owner, repo } of config.github.repos) {
+      const slug = `${owner}/${repo}`;
+      if (!reposWithCommits.has(slug)) continue;
+
+      const repoCommits = dayCommits.filter((c) => c.owner === owner && c.repo === repo);
+      const repoParsed = parseCommitMessages(repoCommits.map((c) => c.commit.message));
+      if (repoParsed.length === 0) continue;
+
+      console.log(`  ${repo}: ${repoParsed.length} change(s) after filtering — generating notes…`);
+      repoParsed.forEach((c) => console.log(`    - ${c}`));
+
+      const section = await generateReleaseNotes(repoParsed, repo);
+      if (!section || section === '_No notes generated._') {
+        console.log(`    Skipping ${repo} — no notes generated.`);
+        continue;
+      }
+      repoSections.push(section);
+      rawChanges.push(...repoParsed);
+    }
+
+    if (repoSections.length === 0) {
+      console.log('  Skipping — no customer-facing changes or no notes generated.');
       continue;
     }
 
-    console.log(`  Generating notes…`);
-    const generatedNotes = await generateReleaseNotes(rawChanges);
+    const generatedNotes = repoSections.join('\n\n');
 
-    if (!generatedNotes || generatedNotes === '_No notes generated._') {
-      console.log('  Skipping — no notes generated.');
-      continue;
-    }
+    const latestDate = dayCommits[0].commit.author.date;
 
-    // Most recent commit in the week is first (commits are sorted newest-first)
-    const latestDate = weekCommits[0].commit.author.date;
-
-    // Per-repo links to the commits view for this week
     const githubUrls = repos.map((slug) => {
-      const c = weekCommits.find((wc) => `${wc.owner}/${wc.repo}` === slug)!;
+      const c = dayCommits.find((wc) => `${wc.owner}/${wc.repo}` === slug)!;
       return `https://github.com/${c.owner}/${c.repo}/commits/${c.branch}`;
     });
 
-    processed.push({
-      cacheKey: weekStart,
+    const nextRelease: ProcessedRelease = {
+      cacheKey: dayKey,
       repos,
-      id: weekStart,
-      tag: weekStart,
-      name: `Week of ${weekLabel(weekStart)}`,
+      id: dayKey,
+      tag: dayKey,
+      name: calendarDayLabel(dayKey),
       date: latestDate,
       rawChanges,
       generatedNotes,
       processedAt: new Date().toISOString(),
       githubUrls,
-    });
+    };
+
+    const pruned = pruneRelease(nextRelease);
+    if (!pruned) {
+      console.log('  Skipping — notes resolved to no customer-facing content.');
+      continue;
+    }
+
+    processed.push(pruned);
 
     newCount++;
   }
@@ -168,7 +214,7 @@ async function main() {
 
   if (newCount > 0) {
     await saveCache(processed);
-    console.log(`\nCache updated with ${newCount} new week(s).`);
+    console.log(`\nCache updated with ${newCount} new day(s).`);
   }
 
   console.log('\nBuilding site…');
@@ -177,7 +223,7 @@ async function main() {
   await writeOutput(html, rss);
 
   console.log(`\nDone! Output written to ${config.paths.output}/`);
-  console.log(`  index.html — ${processed.length} week(s)`);
+  console.log(`  index.html — ${processed.length} release day(s)`);
   console.log(`  feed.xml   — RSS feed`);
 }
 

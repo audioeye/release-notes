@@ -14,7 +14,7 @@ const SAMPLE_RELEASES: ProcessedRelease[] = [
     repos: ['audioeye/services-v2', 'audioeye/a11y-testing'],
     id: '2026-03-10',
     tag: '2026-03-10',
-    name: 'Week of March 10, 2026',
+    name: 'March 10, 2026',
     date: '2026-03-10T12:00:00Z',
     rawChanges: [
       'Fix invalid selector query crash in site-menu and carousel',
@@ -23,16 +23,23 @@ const SAMPLE_RELEASES: ProcessedRelease[] = [
       'Fix the logic of loading RTE',
       'Add support for ARIA landmark detection in shadow DOM',
     ],
-    generatedNotes: `### Bug Fixes
+    generatedNotes: `## a11y-testing
+
+### Bug Fixes
 
 - Fixed a crash caused by an invalid selector query in the site menu and carousel components.
 - Resolved an issue where on-screen support buttons were hidden in mobile maximized view.
 
 ### Improvements
 
+- Added detection of ARIA landmark roles inside shadow DOM elements.
+
+## services-v2
+
+### Improvements
+
 - Localization files are now checked into the codebase for easier management.
-- Improved the logic for loading the rich text editor to ensure consistent behavior.
-- Added detection of ARIA landmark roles inside shadow DOM elements.`,
+- Improved the logic for loading the rich text editor to ensure consistent behavior.`,
     processedAt: new Date().toISOString(),
     githubUrls: [
       'https://github.com/audioeye/services-v2/commits/staging',
@@ -44,12 +51,14 @@ const SAMPLE_RELEASES: ProcessedRelease[] = [
     repos: ['audioeye/services-v2'],
     id: '2026-03-03',
     tag: '2026-03-03',
-    name: 'Week of March 3, 2026',
+    name: 'March 3, 2026',
     date: '2026-03-03T12:00:00Z',
     rawChanges: [
       'Improve contrast ratio calculation for semi-transparent backgrounds',
     ],
-    generatedNotes: `### Improvements
+    generatedNotes: `## services-v2
+
+### Improvements
 
 - Contrast ratio calculations now correctly account for semi-transparent background colors.`,
     processedAt: new Date().toISOString(),

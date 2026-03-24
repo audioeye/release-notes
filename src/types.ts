@@ -13,15 +13,18 @@ export interface GitHubCommit {
 }
 
 export interface ProcessedRelease {
-  // Week start date "YYYY-MM-DD" — unique per week, shared across all repos
+  /** UTC calendar day "YYYY-MM-DD" — unique per day, shared across repos */
   cacheKey: string;
-  repos: string[];      // e.g. ["audioeye/services-v2", "audioeye/a11y-testing"]
-  id: string;           // week start date e.g. "2026-03-09"
-  tag: string;          // same as id, used by buildSite
-  name: string;         // human-readable e.g. "Week of March 9, 2026"
-  date: string;         // ISO date of the most recent commit in the week
+  repos: string[]; // e.g. ["audioeye/services-v2", "audioeye/a11y-testing"]
+  id: string; // same as cacheKey
+  tag: string; // fragment id / RSS anchor
+  name: string; // human-readable UTC calendar date e.g. "March 9, 2026"
+  /** ISO timestamp of the newest commit on this release day (RSS pubDate, ordering) */
+  date: string;
+  /** Parsed commit subjects for this day, in configured repo order (repos with generated sections only). */
   rawChanges: string[];
+  /** Markdown: ## repo, then ### categories per repo; article date is the surrounding <h2>. */
   generatedNotes: string;
   processedAt: string;
-  githubUrls: string[]; // per-repo links to the commits list for that week
+  githubUrls: string[];
 }
