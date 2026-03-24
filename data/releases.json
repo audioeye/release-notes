@@ -1,0 +1,1129 @@
+[
+  {
+    "cacheKey": "2026-03-20",
+    "repos": [
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-03-20",
+    "tag": "2026-03-20",
+    "name": "March 20, 2026",
+    "date": "2026-03-20T19:45:29Z",
+    "rawChanges": [
+      "wrap fixes in try/catch",
+      "add testMode to composite fix types"
+    ],
+    "generatedNotes": "## a11y-testing\n\n### Improvements\n\n- Fixes now gracefully handle unexpected errors, preventing individual failures from impacting the rest of the page.\n- Added testMode support for composite fix types.",
+    "processedAt": "2026-03-24T08:47:21.242Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-03-18",
+    "repos": [
+      "audioeye/a11y-testing",
+      "audioeye/services-v2"
+    ],
+    "id": "2026-03-18",
+    "tag": "2026-03-18",
+    "name": "March 18, 2026",
+    "date": "2026-03-18T21:24:41Z",
+    "rawChanges": [
+      "i18n review follow-up from PR #1116",
+      "Update format script and run prettier on project files",
+      "add release notes for 11x",
+      "Html Scrollable autofix",
+      "do not kill the server when there is a transport error"
+    ],
+    "generatedNotes": "## services-v2\n\n### Improvements\n\n- Improved internationalization support with updated translations and localization fixes.\n\n\n## a11y-testing\n\n### New Features\n\n- Added automatic fix support for HTML scrollable accessibility issues.\n\n### Bug Fixes\n\n- Fixed an issue where a transport error could cause the server to shut down unexpectedly.",
+    "processedAt": "2026-03-24T08:47:47.480Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main",
+      "https://github.com/audioeye/services-v2/commits/staging"
+    ]
+  },
+  {
+    "cacheKey": "2026-03-17",
+    "repos": [
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-03-17",
+    "tag": "2026-03-17",
+    "name": "March 17, 2026",
+    "date": "2026-03-17T23:05:00Z",
+    "rawChanges": [
+      "update trim to not clash with klarna polyfill",
+      "try fixing shell-docs container again",
+      "revert name to Modal_Usage_Cookie_Detect",
+      "fix the shell tool build, add dist-tool output"
+    ],
+    "generatedNotes": "## a11y-testing\n\n### Bug Fixes\n\n- Fixed a compatibility issue where the trim function could conflict with the Klarna polyfill.",
+    "processedAt": "2026-03-24T08:47:57.030Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-03-16",
+    "repos": [
+      "audioeye/services-v2"
+    ],
+    "id": "2026-03-16",
+    "tag": "2026-03-16",
+    "name": "March 16, 2026",
+    "date": "2026-03-16T16:33:12Z",
+    "rawChanges": [
+      "add reporting slices to payload"
+    ],
+    "generatedNotes": "## services-v2\n\n### Improvements\n\n- Reports now include additional data slices in the payload for more detailed reporting breakdowns.",
+    "processedAt": "2026-03-24T08:48:04.309Z",
+    "githubUrls": [
+      "https://github.com/audioeye/services-v2/commits/staging"
+    ]
+  },
+  {
+    "cacheKey": "2026-03-13",
+    "repos": [
+      "audioeye/services-v2",
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-03-13",
+    "tag": "2026-03-13",
+    "name": "March 13, 2026",
+    "date": "2026-03-13T22:21:27Z",
+    "rawChanges": [
+      "Bump multer and others",
+      "Fix two CVE's for fast-xml-parser",
+      "Bump flatted from 3.3.3 to 3.4.1 in /packages/a11y-docs-site",
+      "fix shell server export",
+      "update bug form"
+    ],
+    "generatedNotes": "## services-v2\n\n### Security\n\n- Resolved security vulnerabilities related to XML parsing dependencies.\n\n\n## a11y-testing\n\n### Improvements\n\n- Updated the bug reporting form.",
+    "processedAt": "2026-03-24T08:48:18.662Z",
+    "githubUrls": [
+      "https://github.com/audioeye/services-v2/commits/staging",
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-03-12",
+    "repos": [
+      "audioeye/a11y-testing",
+      "audioeye/services-v2"
+    ],
+    "id": "2026-03-12",
+    "tag": "2026-03-12",
+    "name": "March 12, 2026",
+    "date": "2026-03-12T20:57:02Z",
+    "rawChanges": [
+      "Remove legacy localization code, collapse i18n event chain",
+      "add back webpack-compat build browser module system"
+    ],
+    "generatedNotes": "## a11y-testing\n\n### Improvements\n\n- Restored webpack-compatible browser module build for improved bundler compatibility.",
+    "processedAt": "2026-03-24T08:48:31.852Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main",
+      "https://github.com/audioeye/services-v2/commits/staging"
+    ]
+  },
+  {
+    "cacheKey": "2026-03-11",
+    "repos": [
+      "audioeye/services-v2",
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-03-11",
+    "tag": "2026-03-11",
+    "name": "March 11, 2026",
+    "date": "2026-03-11T19:46:56Z",
+    "rawChanges": [
+      "Remove locize",
+      "Update locale files for i18next migration",
+      "NIJIRA | | Update slack channel id in workflow",
+      "Keep OSS control buttons visible in mobile maximized view",
+      "fix shell tool build"
+    ],
+    "generatedNotes": "## services-v2\n\n### Bug Fixes\n\n- On-Site Scanner control buttons now remain visible when maximized on mobile devices.",
+    "processedAt": "2026-03-24T08:48:40.904Z",
+    "githubUrls": [
+      "https://github.com/audioeye/services-v2/commits/staging",
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-03-10",
+    "repos": [
+      "audioeye/a11y-testing",
+      "audioeye/services-v2"
+    ],
+    "id": "2026-03-10",
+    "tag": "2026-03-10",
+    "name": "March 10, 2026",
+    "date": "2026-03-10T22:26:55Z",
+    "rawChanges": [
+      "Check in localizations to codebase",
+      "Produce and expose MARS report",
+      "add magic version flags to dockerfiles",
+      "remove extra publish_stage script",
+      "fixTabset scoped to anchor."
+    ],
+    "generatedNotes": "## services-v2\n\n### Improvements\n\n- Updated localization files to provide improved language support across the platform.\n\n\n## a11y-testing\n\n### New Features\n- Added support for generating and exposing MARS reports.\n\n### Bug Fixes\n- Fixed an issue where fixTabset was not properly scoped to anchor elements.",
+    "processedAt": "2026-03-24T08:48:57.509Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main",
+      "https://github.com/audioeye/services-v2/commits/staging"
+    ]
+  },
+  {
+    "cacheKey": "2026-03-09",
+    "repos": [
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-03-09",
+    "tag": "2026-03-09",
+    "name": "March 9, 2026",
+    "date": "2026-03-09T20:40:52Z",
+    "rawChanges": [
+      "H1 Missing autofix",
+      "rework docker builds to use build-tag-push",
+      "spawn mcp server",
+      "add extract images handler",
+      "centralize ae blocking code",
+      "create unfixed issues tool",
+      "update docker publish for new images",
+      "add a11y-docs-site docker export",
+      "create scanner bundler mcp server",
+      "Autofix h1 multiple to add h2s",
+      "MenuItem ParentMissing Autofix"
+    ],
+    "generatedNotes": "## a11y-testing\n\n### New Features\n\n- Added a tool to view and manage unfixed accessibility issues.\n- Added support for extracting images during accessibility analysis.\n\n### Autofixes\n\n- Added an autofix for pages with a missing H1 heading.\n- Added an autofix that converts extra H1 headings to H2s when multiple H1s are detected.\n- Added an autofix for MenuItem elements that are missing a required parent container.",
+    "processedAt": "2026-03-24T08:49:08.313Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-03-06",
+    "repos": [
+      "audioeye/services-v2",
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-03-06",
+    "tag": "2026-03-06",
+    "name": "March 6, 2026",
+    "date": "2026-03-06T19:16:39Z",
+    "rawChanges": [
+      "Fix invalid selector query crash in site-menu and carousel",
+      "convert to rolldown"
+    ],
+    "generatedNotes": "## services-v2\n\n### Bug Fixes\n\n- Fixed a crash caused by an invalid selector query in the site-menu and carousel components.",
+    "processedAt": "2026-03-24T08:51:13.931Z",
+    "githubUrls": [
+      "https://github.com/audioeye/services-v2/commits/staging",
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-03-05",
+    "repos": [
+      "audioeye/a11y-testing",
+      "audioeye/services-v2"
+    ],
+    "id": "2026-03-05",
+    "tag": "2026-03-05",
+    "name": "March 5, 2026",
+    "date": "2026-03-05T23:21:24Z",
+    "rawChanges": [
+      "Fix the logic of loading RTE",
+      "Yotpo/google review/Star rating patterns autoFix",
+      "manualFooterLandmarkMissing autofix",
+      "patch for buttonRoleMissing autofix",
+      "add nonRulesAutoFixesAllowList to prodconfig types so mono prodConfig can include it"
+    ],
+    "generatedNotes": "## services-v2\n\n### Bug Fixes\n\n- Fixed an issue with the loading logic for Real Time Effects.\n\n\n## a11y-testing\n\n### New Features\n\n- Added auto-fix support for accessibility issues in Yotpo and Google review star rating patterns.\n- Added auto-fix support for the manualFooterLandmarkMissing issue.\n\n### Bug Fixes\n\n- Fixed an issue with the buttonRoleMissing auto-fix not working correctly.",
+    "processedAt": "2026-03-24T08:51:23.104Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main",
+      "https://github.com/audioeye/services-v2/commits/staging"
+    ]
+  },
+  {
+    "cacheKey": "2026-03-04",
+    "repos": [
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-03-04",
+    "tag": "2026-03-04",
+    "name": "March 4, 2026",
+    "date": "2026-03-04T18:38:41Z",
+    "rawChanges": [
+      "setup autofix in Sg scanner"
+    ],
+    "generatedNotes": "## a11y-testing\n\n### New Features\n\n- Added autofix support in the Sg scanner to automatically resolve detected accessibility issues.",
+    "processedAt": "2026-03-24T08:51:32.149Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-03-03",
+    "repos": [
+      "audioeye/services-v2",
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-03-03",
+    "tag": "2026-03-03",
+    "name": "March 3, 2026",
+    "date": "2026-03-03T18:06:10Z",
+    "rawChanges": [
+      "Hotfix: Fix JavaScript freezing on pages with region-qualified lang codes",
+      "deleting the example audiocontrols autofix"
+    ],
+    "generatedNotes": "## services-v2\n\n### Bug Fixes\n\n- Fixed an issue where JavaScript could freeze on pages using region-qualified language codes (e.g. `en-US`, `fr-CA`).",
+    "processedAt": "2026-03-24T08:51:47.522Z",
+    "githubUrls": [
+      "https://github.com/audioeye/services-v2/commits/staging",
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-03-02",
+    "repos": [
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-03-02",
+    "tag": "2026-03-02",
+    "name": "March 2, 2026",
+    "date": "2026-03-02T23:12:31Z",
+    "rawChanges": [
+      "remove ruleTestReport from fake report server",
+      "2 Autofixes HTMLTabable + ManualCursorFocus",
+      "Googletranslate missing labels/region autofix",
+      "Heading sequence invalid fix",
+      "SVGNameMissing autofix"
+    ],
+    "generatedNotes": "## a11y-testing\n\n### New Autofixes\n\n- Added autofixes for the HTMLTabable and ManualCursorFocus rules.\n- Added an autofix for the Google Translate missing labels/region rule.\n- Added an autofix for the SVGNameMissing rule.\n\n### Bug Fixes\n\n- Fixed an issue with heading sequence validation.",
+    "processedAt": "2026-03-24T08:51:54.013Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-02-27",
+    "repos": [
+      "audioeye/a11y-testing",
+      "audioeye/services-v2"
+    ],
+    "id": "2026-02-27",
+    "tag": "2026-02-27",
+    "name": "February 27, 2026",
+    "date": "2026-02-27T23:33:46Z",
+    "rawChanges": [
+      "Skip CDN fetch for English locale files",
+      "Fix RTL text alignment by inheriting direction in CSS reset",
+      "Link_AdjacentHref_Redundant logic update",
+      "NIJIRA | | Mark Escape key tests as fixme (flaky across all browsers)",
+      "update Link_AdjacentHref_Redundant rule",
+      "iframe name missing autofix"
+    ],
+    "generatedNotes": "## services-v2\n\n### Improvements\n\n- Improved performance for English locale by skipping unnecessary network requests for language files.\n\n### Bug Fixes\n\n- Fixed an issue where text alignment was incorrect for right-to-left (RTL) languages due to CSS reset not inheriting direction properly.\n\n\n## a11y-testing\n\n### Improvements\n\n- Updated the detection logic for the Link_AdjacentHref_Redundant rule to improve accuracy.\n- Added autofix support for the iframe name missing rule.",
+    "processedAt": "2026-03-24T08:52:09.722Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main",
+      "https://github.com/audioeye/services-v2/commits/staging"
+    ]
+  },
+  {
+    "cacheKey": "2026-02-26",
+    "repos": [
+      "audioeye/a11y-testing",
+      "audioeye/services-v2"
+    ],
+    "id": "2026-02-26",
+    "tag": "2026-02-26",
+    "name": "February 26, 2026",
+    "date": "2026-02-26T23:19:02Z",
+    "rawChanges": [
+      "Fix translation broken in HelpDesk sr div",
+      "Fix site-menu cross-frame, keyboard nav, Alt+M bugs + demo site"
+    ],
+    "generatedNotes": "## services-v2\n\n### Bug Fixes\n\n- Fixed an issue where translations were not displaying correctly in the HelpDesk screen reader content.\n\n\n## a11y-testing\n\n### Bug Fixes\n\n- Fixed several site menu issues including cross-frame behavior, keyboard navigation, and the Alt+M shortcut.",
+    "processedAt": "2026-03-24T08:52:18.425Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main",
+      "https://github.com/audioeye/services-v2/commits/staging"
+    ]
+  },
+  {
+    "cacheKey": "2026-02-25",
+    "repos": [
+      "audioeye/services-v2",
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-02-25",
+    "tag": "2026-02-25",
+    "name": "February 25, 2026",
+    "date": "2026-02-25T16:35:52Z",
+    "rawChanges": [
+      "Add RTL (Hebrew) language support for HelpDesk",
+      "remove minimum version check on bundler"
+    ],
+    "generatedNotes": "## services-v2\n\n### New Features\n\n- Added right-to-left (RTL) language support for Hebrew in HelpDesk.\n\n\n## a11y-testing\n\n### Improvements\n\n- Removed the minimum version requirement for the bundler, allowing greater flexibility in supported versions.",
+    "processedAt": "2026-03-24T08:52:26.875Z",
+    "githubUrls": [
+      "https://github.com/audioeye/services-v2/commits/staging",
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-02-24",
+    "repos": [
+      "audioeye/services-v2",
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-02-24",
+    "tag": "2026-02-24",
+    "name": "February 24, 2026",
+    "date": "2026-02-24T22:04:09Z",
+    "rawChanges": [
+      "Bump mono-test-helpers",
+      "add iife export type for rules factories",
+      "Readme on autofix contents added"
+    ],
+    "generatedNotes": "## a11y-testing\n\n### Improvements\n\n- Added IIFE export type for rules factories, enabling direct use in browser environments without a module bundler.",
+    "processedAt": "2026-03-24T08:52:39.574Z",
+    "githubUrls": [
+      "https://github.com/audioeye/services-v2/commits/staging",
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-02-23",
+    "repos": [
+      "audioeye/services-v2",
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-02-23",
+    "tag": "2026-02-23",
+    "name": "February 23, 2026",
+    "date": "2026-02-23T17:54:27Z",
+    "rawChanges": [
+      "Locize Cleanup",
+      "Hotfix - add optimizely href to skip autorem applying"
+    ],
+    "generatedNotes": "## a11y-testing\n\n### Bug Fixes\n\n- Fixed an issue where automatic remediation was incorrectly applied to Optimizely links.",
+    "processedAt": "2026-03-24T08:52:48.207Z",
+    "githubUrls": [
+      "https://github.com/audioeye/services-v2/commits/staging",
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-02-20",
+    "repos": [
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-02-20",
+    "tag": "2026-02-20",
+    "name": "February 20, 2026",
+    "date": "2026-02-20T22:42:43Z",
+    "rawChanges": [
+      "fix release to include carousel",
+      "sitemenu fix",
+      "Aria role invalid autofix",
+      "move autofixes to their own folders to cleanup"
+    ],
+    "generatedNotes": "## a11y-testing\n\n### New Features\n\n- Added an autofix for invalid ARIA role values.\n\n### Bug Fixes\n\n- Fixed an issue where the carousel component was not included in the release.\n- Fixed an issue with the site menu.",
+    "processedAt": "2026-03-24T08:52:53.133Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-02-19",
+    "repos": [
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-02-19",
+    "tag": "2026-02-19",
+    "name": "February 19, 2026",
+    "date": "2026-02-19T22:02:52Z",
+    "rawChanges": [
+      "Bump the npm_and_yarn group across 1 directory with 7 updates",
+      "fix anatomy proposed doc",
+      "add buttonRoleMissing autofix",
+      "DAD doc update"
+    ],
+    "generatedNotes": "## a11y-testing\n\n### New Features\n\n- Added an automatic fix for the buttonRoleMissing rule, allowing issues with missing button roles to be resolved automatically.",
+    "processedAt": "2026-03-24T08:52:58.139Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-02-18",
+    "repos": [
+      "audioeye/services-v2",
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-02-18",
+    "tag": "2026-02-18",
+    "name": "February 18, 2026",
+    "date": "2026-02-18T22:08:16Z",
+    "rawChanges": [
+      "defer rules config loading until mars has a chance",
+      "split fix failed and issue failed validation",
+      "helper function for adding aria live regions for imp fixes"
+    ],
+    "generatedNotes": "## services-v2\n\n### Improvements\n\n- Improved the timing of rules configuration loading to ensure all necessary services are ready, increasing reliability.\n\n\n## a11y-testing\n\n### Improvements\n\n- Separated \"fix failed\" and \"issue failed\" into distinct validation states for clearer feedback.\n- Added aria live regions to improve screen reader announcements for applied fixes.",
+    "processedAt": "2026-03-24T08:53:11.842Z",
+    "githubUrls": [
+      "https://github.com/audioeye/services-v2/commits/staging",
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-02-17",
+    "repos": [
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-02-17",
+    "tag": "2026-02-17",
+    "name": "February 17, 2026",
+    "date": "2026-02-17T21:32:54Z",
+    "rawChanges": [
+      "Autorem skip link add click+keyb event and playwright test",
+      "fix publish for carousel",
+      "setup playwright autoFixes + 2 autofixes with tests",
+      "add ability to fill in missing metadata"
+    ],
+    "generatedNotes": "## a11y-testing\n\n### New Features\n\n- Added the ability to automatically fill in missing metadata for improved accessibility compliance.\n\n### Improvements\n\n- Skip link auto-remediation now supports both click and keyboard interactions.\n- Added two new auto-fix rules to expand automated remediation coverage.\n\n### Bug Fixes\n\n- Fixed an issue preventing carousel auto-remediation from being published correctly.",
+    "processedAt": "2026-03-24T08:53:18.845Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-02-16",
+    "repos": [
+      "audioeye/services-v2",
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-02-16",
+    "tag": "2026-02-16",
+    "name": "February 16, 2026",
+    "date": "2026-02-16T23:06:56Z",
+    "rawChanges": [
+      "a11ytesting 11x version npm alias for Autofixes",
+      "clean up validation test",
+      "Implement Carousel component and FixCarousel",
+      "add rules files to package",
+      "do not emit unfixed problem for source fix rules",
+      "find regressions better"
+    ],
+    "generatedNotes": "## services-v2\n\n### Improvements\n\n- Added support for the 11x version alias for Autofixes.\n\n\n## a11y-testing\n\n### New Features\n- Added support for testing and fixing accessibility issues in Carousel components.\n\n### Improvements\n- Improved detection of accessibility regressions.\n\n### Bug Fixes\n- Rules files are now correctly included in the package.\n- Source fix rules no longer incorrectly report unfixed problems.",
+    "processedAt": "2026-03-24T08:53:29.210Z",
+    "githubUrls": [
+      "https://github.com/audioeye/services-v2/commits/staging",
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-02-13",
+    "repos": [
+      "audioeye/services-v2",
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-02-13",
+    "tag": "2026-02-13",
+    "name": "February 13, 2026",
+    "date": "2026-02-13T21:47:37Z",
+    "rawChanges": [
+      "Locize translation SiteMenu and others",
+      "ensure legacy rems run when other conditions are met",
+      "add ability to disable regular rules in services-v2-scanner",
+      "Add testMode() for composite fix debug logging",
+      "fix false positives in NonText_Contrast_TooLow rule"
+    ],
+    "generatedNotes": "## services-v2\n\n### Improvements\n\n- Updated translations for the SiteMenu and other components to improve internationalization support.\n\n### Bug Fixes\n\n- Fixed an issue where legacy remediations were not running when expected conditions were met.\n\n\n## a11y-testing\n\n### New Features\n- Added the ability to disable regular rules in the scanner.\n\n### Bug Fixes\n- Fixed false positives in the NonText_Contrast_TooLow rule.",
+    "processedAt": "2026-03-24T08:53:39.709Z",
+    "githubUrls": [
+      "https://github.com/audioeye/services-v2/commits/staging",
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-02-12",
+    "repos": [
+      "audioeye/services-v2",
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-02-12",
+    "tag": "2026-02-12",
+    "name": "February 12, 2026",
+    "date": "2026-02-12T19:52:27Z",
+    "rawChanges": [
+      "Locize Translation Carousel",
+      "DAD docs adds SFR repo"
+    ],
+    "generatedNotes": "## services-v2\n\n### Improvements\n\n- Updated translations for the carousel component to improve the experience for users in different languages.",
+    "processedAt": "2026-03-24T08:53:49.368Z",
+    "githubUrls": [
+      "https://github.com/audioeye/services-v2/commits/staging",
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-02-11",
+    "repos": [
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-02-11",
+    "tag": "2026-02-11",
+    "name": "February 11, 2026",
+    "date": "2026-02-11T21:33:36Z",
+    "rawChanges": [
+      "add fix failed verification imp problem",
+      "doesNotApply when no link name."
+    ],
+    "generatedNotes": "## a11y-testing\n\n### Bug Fixes\n\n- Fixed an issue where verification could incorrectly report a failure during implementation checks.\n- Links without a name now correctly return a doesNotApply result instead of being evaluated.",
+    "processedAt": "2026-03-24T08:53:54.825Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-02-10",
+    "repos": [
+      "audioeye/a11y-testing",
+      "audioeye/services-v2"
+    ],
+    "id": "2026-02-10",
+    "tag": "2026-02-10",
+    "name": "February 10, 2026",
+    "date": "2026-02-10T23:54:36Z",
+    "rawChanges": [
+      "add validation phase",
+      "remove legacy marsEngine",
+      "add fix failed verification result",
+      "add implementationProblems to MarsReport",
+      "add execution order to fix tracker output",
+      "update to the new get or default package",
+      "add get or default package",
+      "Add excludeItems API for FixSiteMenu",
+      "fix post publish e2e testing",
+      "Add MARS to DAD"
+    ],
+    "generatedNotes": "## services-v2\n\n### Improvements\n\n- Added a validation phase to improve processing accuracy and reliability.\n\n\n## a11y-testing\n\n### New Features\n\n- Added the `excludeItems` API for FixSiteMenu, allowing you to exclude specific items from the menu.\n- Added MARS report support to DAD.\n\n### Improvements\n\n- Fix verification results now include details for failed verifications.\n- MARS reports now include implementationProblems data for more comprehensive reporting.\n- Fix tracker output now displays execution order for better traceability.",
+    "processedAt": "2026-03-24T08:54:14.765Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main",
+      "https://github.com/audioeye/services-v2/commits/staging"
+    ]
+  },
+  {
+    "cacheKey": "2026-02-09",
+    "repos": [
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-02-09",
+    "tag": "2026-02-09",
+    "name": "February 9, 2026",
+    "date": "2026-02-09T23:57:19Z",
+    "rawChanges": [
+      "add webpack compatible output to browser-module-system",
+      "disable creating github changelog",
+      "automatically exclude private packages from release",
+      "convert wcag to library and lock versions",
+      "add imp problems to publish",
+      "attempt to fix the lambda module not found error",
+      "turn off caching for copy-dist-files"
+    ],
+    "generatedNotes": "## a11y-testing\n\n### Improvements\n\n- Added webpack-compatible output to the browser module system for broader build tool compatibility.\n- Converted WCAG rules to a library with locked versions for improved stability and consistency.\n\n### Bug Fixes\n\n- Fixed an issue that could cause a module not found error in certain server-side environments.",
+    "processedAt": "2026-03-24T08:54:22.762Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-02-06",
+    "repos": [
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-02-06",
+    "tag": "2026-02-06",
+    "name": "February 6, 2026",
+    "date": "2026-02-06T21:25:52Z",
+    "rawChanges": [
+      "remove package json from cache output",
+      "setLabel() helper - allow Cash type for second parameter",
+      "copy files to the weird /dist instead of links",
+      "adding MARS to DAD",
+      "add release notes for 10.4 releases"
+    ],
+    "generatedNotes": "## a11y-testing\n\n### Improvements\n\n- The setLabel() helper now accepts a Cash type as its second parameter.",
+    "processedAt": "2026-03-24T08:54:42.243Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-02-05",
+    "repos": [
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-02-05",
+    "tag": "2026-02-05",
+    "name": "February 5, 2026",
+    "date": "2026-02-05T21:47:44Z",
+    "rawChanges": [
+      "create implementation problems list",
+      "move renderSelfHtml to prevent circular dep",
+      "add validate fixes flag for mars",
+      "exclude disabled elements from focusable list"
+    ],
+    "generatedNotes": "## a11y-testing\n\n### New Features\n\n- Added an implementation problems list to help identify and track accessibility issues.\n- Added support for validating applied fixes during testing.\n\n### Improvements\n\n- Disabled elements are now correctly excluded from the focusable elements list.",
+    "processedAt": "2026-03-24T08:54:51.268Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-02-04",
+    "repos": [
+      "audioeye/a11y-testing",
+      "audioeye/services-v2"
+    ],
+    "id": "2026-02-04",
+    "tag": "2026-02-04",
+    "name": "February 4, 2026",
+    "date": "2026-02-04T22:41:39Z",
+    "rawChanges": [
+      "allow prerelease scanner versions in the query string",
+      "Bootstrap Additional Auto Fixes",
+      "improve browser symlink executor",
+      "add missing packages",
+      "add fallback version resolver for new packages",
+      "add babel plugin to versions list"
+    ],
+    "generatedNotes": "## services-v2\n\n### Improvements\n\n- Scanner version queries now support prerelease version formats.\n\n\n## a11y-testing\n\n### New Features\n\n- Added additional automatic fixes during the bootstrap process for accessibility issues.",
+    "processedAt": "2026-03-24T08:54:59.909Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main",
+      "https://github.com/audioeye/services-v2/commits/staging"
+    ]
+  },
+  {
+    "cacheKey": "2026-02-03",
+    "repos": [
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-02-03",
+    "tag": "2026-02-03",
+    "name": "February 3, 2026",
+    "date": "2026-02-03T23:59:00Z",
+    "rawChanges": [
+      "Fixing tar vulnerability.",
+      "turn off preserveLocalDependencyProtocols",
+      "add tokens to try and fix auth during publish",
+      "Fix the playwright report",
+      "add debugging to release for auth",
+      "add npm auth to publish",
+      "fix publish setup",
+      "Change some yarn settings",
+      "fix the a11y docs site build during publish",
+      "fix Img_Name_TooLong causing images to disappear"
+    ],
+    "generatedNotes": "## a11y-testing\n\n### Bug Fixes\n\n- Fixed an issue where images with long file names could disappear from results.\n- Fixed a security vulnerability in a third-party dependency.",
+    "processedAt": "2026-03-24T08:55:06.241Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-02-02",
+    "repos": [
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-02-02",
+    "tag": "2026-02-02",
+    "name": "February 2, 2026",
+    "date": "2026-02-02T23:53:56Z",
+    "rawChanges": [
+      "form landmark missing manual rule added",
+      "fix release script and backport to 11_0_x",
+      "add fixVerified and regression results",
+      "New manual rule for focus trap"
+    ],
+    "generatedNotes": "## a11y-testing\n\n### New Features\n\n- Added a new manual rule to detect missing form landmarks.\n- Added a new manual rule for evaluating focus traps.\n\n### Improvements\n\n- Added fixVerified and regression results to test outcomes.",
+    "processedAt": "2026-03-24T08:55:11.582Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-01-29",
+    "repos": [
+      "audioeye/services-v2",
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-01-29",
+    "tag": "2026-01-29",
+    "name": "January 29, 2026",
+    "date": "2026-01-29T18:51:11Z",
+    "rawChanges": [
+      "Overriding for tar vulnerability.",
+      "Handle html2canvas errors with custom elements",
+      "add reporting slices to report payload",
+      "fix build caching for bundles and site menu prebuild"
+    ],
+    "generatedNotes": "## services-v2\n\n### Bug Fixes\n\n- Fixed an issue where errors could occur when capturing pages containing custom HTML elements.\n\n\n## a11y-testing\n\n### Improvements\n\n- Added reporting slices to the report payload for more detailed report data.",
+    "processedAt": "2026-03-24T08:55:20.794Z",
+    "githubUrls": [
+      "https://github.com/audioeye/services-v2/commits/staging",
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-01-28",
+    "repos": [
+      "audioeye/services-v2",
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-01-28",
+    "tag": "2026-01-28",
+    "name": "January 28, 2026",
+    "date": "2026-01-28T16:17:34Z",
+    "rawChanges": [
+      "Trigger CI after config repo fix -2",
+      "change backport all list",
+      "switch from cantFix to skip",
+      "refine return type for rule evaluation"
+    ],
+    "generatedNotes": "## a11y-testing\n\n### Changes\n\n- The \"cantFix\" issue status has been replaced with \"skip\" for a clearer workflow when marking issues that will not be addressed.",
+    "processedAt": "2026-03-24T08:55:38.980Z",
+    "githubUrls": [
+      "https://github.com/audioeye/services-v2/commits/staging",
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-01-27",
+    "repos": [
+      "audioeye/services-v2",
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-01-27",
+    "tag": "2026-01-27",
+    "name": "January 27, 2026",
+    "date": "2026-01-27T20:53:32Z",
+    "rawChanges": [
+      "Trigger CI after config repo fix",
+      "Remove duplicate aria label in launcher",
+      "Restore language change observer and consolidate i18n namespaces",
+      "sync repo setting in package.json",
+      "update the readme",
+      "convert site menu",
+      "convert composite fix to standard build",
+      "create mars injectable package, convert v2-scanner",
+      "publish browser modules, split mars-output-adapter",
+      "add json rollup plugin"
+    ],
+    "generatedNotes": "## services-v2\n\n### Bug Fixes\n\n- Removed a duplicate aria label in the launcher to improve screen reader clarity.\n\n### Improvements\n\n- Restored the language change observer and consolidated internationalization namespaces for more reliable multi-language support.",
+    "processedAt": "2026-03-24T08:56:01.413Z",
+    "githubUrls": [
+      "https://github.com/audioeye/services-v2/commits/staging",
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-01-26",
+    "repos": [
+      "audioeye/a11y-testing",
+      "audioeye/services-v2"
+    ],
+    "id": "2026-01-26",
+    "tag": "2026-01-26",
+    "name": "January 26, 2026",
+    "date": "2026-01-26T21:15:27Z",
+    "rawChanges": [
+      "Bump php and datadog",
+      "Bump node to v24",
+      "Fix font fallback paths for CSP-restricted sites",
+      "Fix html2canvas TypeError with custom elements",
+      "Fix poor contrast for personalization tools buttons in focus state",
+      "Fix locize sync 404 error by adding --cdn-type prod",
+      "add formatting, remove dead code",
+      "create generator for browser modules",
+      "add bin generation",
+      "refactor the generator classes",
+      "apply audioeye.lib to appropriate packages",
+      "Devdocs autorem subsections + debugging tips/walkthrough"
+    ],
+    "generatedNotes": "## services-v2\n\n### Bug Fixes\n\n- Fixed font fallback paths not loading correctly on sites with Content Security Policy (CSP) restrictions.\n- Fixed a TypeError that could occur when capturing screenshots on pages containing custom HTML elements.\n- Fixed poor contrast on personalization tools buttons when in focus state.",
+    "processedAt": "2026-03-24T08:56:15.998Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main",
+      "https://github.com/audioeye/services-v2/commits/staging"
+    ]
+  },
+  {
+    "cacheKey": "2026-01-23",
+    "repos": [
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-01-23",
+    "tag": "2026-01-23",
+    "name": "January 23, 2026",
+    "date": "2026-01-23T21:37:26Z",
+    "rawChanges": [
+      "setHideFromAT updated to add aria-hidden true",
+      "Devdocs small update to a fix accordion example",
+      "create a generator to standardize builds",
+      "Devdocs-sidebar sorting per latest versions of release notes first",
+      "Switch top level dist setup to nx plugin",
+      "Export common types so API codegen works"
+    ],
+    "generatedNotes": "## a11y-testing\n\n### Improvements\n\n- `setHideFromAT` now applies `aria-hidden=\"true\"` to more reliably hide elements from assistive technology.\n- Common types are now exported to support API code generation.",
+    "processedAt": "2026-03-24T08:56:22.275Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-01-21",
+    "repos": [
+      "audioeye/a11y-testing",
+      "audioeye/services-v2"
+    ],
+    "id": "2026-01-21",
+    "tag": "2026-01-21",
+    "name": "January 21, 2026",
+    "date": "2026-01-21T23:12:37Z",
+    "rawChanges": [
+      "when product config smart rems off, dont plan smart rems patch",
+      "｜ | Locize Translation Launcher",
+      "add preserveSymlinks",
+      "add node externals to builds",
+      "Updating npm in bundler-nestjs package for glob vulnerability.",
+      "Switch a11y-active-scanner to use rollup instead of api-extractor",
+      "Switch a11y-rules-framework to use rollup instead of api-extractor",
+      "remove compat/polyfill build for rules",
+      "Switch a11y-rules-tools to use rollup instead of api-extractor",
+      "Switch a11y-rules-test-helpers to use rollup instead of api-extractor",
+      "Switch a11y-rules-helpers to use rollup instead of api-extractor",
+      "Switch a11y-rules-composite-fixes to use rollup instead of api-extractor"
+    ],
+    "generatedNotes": "## services-v2\n\n### Bug Fixes\n\n- Fixed an issue where smart remediation patches were still being planned even when smart remediation was disabled in the product configuration.",
+    "processedAt": "2026-03-24T08:56:41.813Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main",
+      "https://github.com/audioeye/services-v2/commits/staging"
+    ]
+  },
+  {
+    "cacheKey": "2026-01-20",
+    "repos": [
+      "audioeye/a11y-testing",
+      "audioeye/services-v2"
+    ],
+    "id": "2026-01-20",
+    "tag": "2026-01-20",
+    "name": "January 20, 2026",
+    "date": "2026-01-20T21:19:43Z",
+    "rawChanges": [
+      "fix oss highlighting for rules 10.4+",
+      "switch to yarn",
+      "remove the jsdom based a11y rule test framework"
+    ],
+    "generatedNotes": "## services-v2\n\n### Bug Fixes\n\n- Fixed an issue where On-Site Scanner highlighting was not working correctly for rules numbered 10.4 and above.",
+    "processedAt": "2026-03-24T08:56:49.632Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main",
+      "https://github.com/audioeye/services-v2/commits/staging"
+    ]
+  },
+  {
+    "cacheKey": "2026-01-19",
+    "repos": [
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-01-19",
+    "tag": "2026-01-19",
+    "name": "January 19, 2026",
+    "date": "2026-01-19T17:48:45Z",
+    "rawChanges": [
+      "do not emit eau report unless mars says to"
+    ],
+    "generatedNotes": "## a11y-testing\n\n### Improvements\n\n- Reports are now only generated when explicitly enabled, reducing unnecessary processing.",
+    "processedAt": "2026-03-24T08:56:54.866Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-01-17",
+    "repos": [
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-01-17",
+    "tag": "2026-01-17",
+    "name": "January 17, 2026",
+    "date": "2026-01-17T00:37:37Z",
+    "rawChanges": [
+      "Add Translation to A11y-Rules-Tools for using in other packages"
+    ],
+    "generatedNotes": "## a11y-testing\n\n### Improvements\n\n- Added translation support to accessibility rules tools, enabling internationalization across additional packages.",
+    "processedAt": "2026-03-24T08:56:58.623Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-01-16",
+    "repos": [
+      "audioeye/services-v2",
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-01-16",
+    "tag": "2026-01-16",
+    "name": "January 16, 2026",
+    "date": "2026-01-16T22:03:46Z",
+    "rawChanges": [
+      "Locize Translation Compliance",
+      "Used npm audit fix for qs vulnerability."
+    ],
+    "generatedNotes": "## services-v2\n\n### Improvements\n\n- Improved translation compliance to ensure more accurate and complete localized content across supported languages.",
+    "processedAt": "2026-03-24T08:57:16.072Z",
+    "githubUrls": [
+      "https://github.com/audioeye/services-v2/commits/staging",
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-01-15",
+    "repos": [
+      "audioeye/services-v2",
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-01-15",
+    "tag": "2026-01-15",
+    "name": "January 15, 2026",
+    "date": "2026-01-15T22:46:33Z",
+    "rawChanges": [
+      "Add new domains to allowed service domains",
+      "update Weakname.md docs for display none issue"
+    ],
+    "generatedNotes": "## services-v2\n\n### Improvements\n\n- Added support for additional service domains.\n\n\n## a11y-testing\n\n### Improvements\n\n- Updated the Weakname rule documentation to address handling of `display: none` elements.",
+    "processedAt": "2026-03-24T08:57:33.067Z",
+    "githubUrls": [
+      "https://github.com/audioeye/services-v2/commits/staging",
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-01-13",
+    "repos": [
+      "audioeye/services-v2",
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-01-13",
+    "tag": "2026-01-13",
+    "name": "January 13, 2026",
+    "date": "2026-01-13T19:43:06Z",
+    "rawChanges": [
+      "remove site module rollout code",
+      "update OSS to use the new MARS report",
+      "Use `npm audit fix` and bump `locize-cli` to fix CVEs",
+      "Add MutationIntent infrastructure",
+      "add updated release notes to DAD"
+    ],
+    "generatedNotes": "## services-v2\n\n### Improvements\n\n- Updated the On-Site Scanner to use the new MARS report.\n- Applied security patches to address known vulnerabilities.",
+    "processedAt": "2026-03-24T08:57:50.469Z",
+    "githubUrls": [
+      "https://github.com/audioeye/services-v2/commits/staging",
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-01-12",
+    "repos": [
+      "audioeye/a11y-testing",
+      "audioeye/services-v2"
+    ],
+    "id": "2026-01-12",
+    "tag": "2026-01-12",
+    "name": "January 12, 2026",
+    "date": "2026-01-12T20:34:28Z",
+    "rawChanges": [
+      "Run `npm audit fix`",
+      "Change source fix to true on a sourceFix rule Text Size Too Small",
+      "Add removing newline characters from esapeSelectorText",
+      "fix for trapFocus - update focusableItemSelector"
+    ],
+    "generatedNotes": "## a11y-testing\n\n### Bug Fixes\n\n- Fixed an issue where focus trapping did not correctly identify all focusable elements.\n- Fixed handling of newline characters in element selectors to prevent matching errors.\n\n### Improvements\n\n- The \"Text Size Too Small\" rule now supports source fix, allowing you to apply fixes directly in your source code.",
+    "processedAt": "2026-03-24T08:58:07.541Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main",
+      "https://github.com/audioeye/services-v2/commits/staging"
+    ]
+  },
+  {
+    "cacheKey": "2026-01-07",
+    "repos": [
+      "audioeye/services-v2",
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-01-07",
+    "tag": "2026-01-07",
+    "name": "January 7, 2026",
+    "date": "2026-01-07T16:48:05Z",
+    "rawChanges": [
+      "Fix naming in multiple main elements",
+      "basic E2E for error handling in frameBudgetScheduler"
+    ],
+    "generatedNotes": "## services-v2\n\n### Bug Fixes\n\n- Fixed incorrect naming when multiple main elements are present on a page.",
+    "processedAt": "2026-03-24T08:58:21.097Z",
+    "githubUrls": [
+      "https://github.com/audioeye/services-v2/commits/staging",
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-01-06",
+    "repos": [
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-01-06",
+    "tag": "2026-01-06",
+    "name": "January 6, 2026",
+    "date": "2026-01-06T21:42:16Z",
+    "rawChanges": [
+      "For old browser versions: replace element.checkVisibility with safeCheckVisibility",
+      "update refocusOnClose logic"
+    ],
+    "generatedNotes": "## a11y-testing\n\n### Improvements\n\n- Improved compatibility with older browser versions when checking element visibility.\n- Updated focus management behavior when closing interactive elements.",
+    "processedAt": "2026-03-24T08:58:25.575Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  },
+  {
+    "cacheKey": "2026-01-05",
+    "repos": [
+      "audioeye/a11y-testing"
+    ],
+    "id": "2026-01-05",
+    "tag": "2026-01-05",
+    "name": "January 5, 2026",
+    "date": "2026-01-05T20:15:40Z",
+    "rawChanges": [
+      "Form Field auto-complete multiple"
+    ],
+    "generatedNotes": "## a11y-testing\n\n### New Features\n\n- Added support for testing form fields with multiple auto-complete values.",
+    "processedAt": "2026-03-24T08:58:29.571Z",
+    "githubUrls": [
+      "https://github.com/audioeye/a11y-testing/commits/main"
+    ]
+  }
+]
